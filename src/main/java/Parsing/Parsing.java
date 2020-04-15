@@ -17,4 +17,7 @@ public class Parsing {
     public Object parseDataFromJson() throws JsonProcessingException {
         return new ObjectMapper().readValue(response, instance.getClass());
     }
+    public Object parseDataFromJsonFailProperties() throws JsonProcessingException {
+        return new ObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).readValue(response, instance.getClass());
+    }
 }

@@ -10,4 +10,7 @@ import java.util.List;
 public class PhotoMars {
 
     private List<Photo> photos;
+
+    public PhotoMars(Integer sol) {
+    }
 }
