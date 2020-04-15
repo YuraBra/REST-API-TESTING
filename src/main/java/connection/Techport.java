@@ -25,7 +25,7 @@ public class Techport extends BaseNasa {
 
     private String createURL(String idParametr){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(baseTechportURL).newBuilder();
-        urlBuilder.addQueryParameter("id_parameter","/" + idParametr);
+        urlBuilder.addQueryParameter("id_parameter","/" + idParametr);      // ?????????
         urlBuilder.addQueryParameter("api_key", apiKey);
 
         return urlBuilder.build().toString();
