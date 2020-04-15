@@ -1,3 +1,4 @@
+import Parsing.Parsing;
 import connection.MarsRoverPhotos;
 import data.marsRoverPhotos.PhotoMars;
 
@@ -24,10 +25,10 @@ public class Main {
 //        Parsing parsing2 = new Parsing(new AsteroidObject(),response);
 //        AsteroidObject asteroidObject = (AsteroidObject) parsing2.parseDataFromJson();
 //        System.out.println(asteroidObject);
-        MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
-        String response = marsRoverPhotos.run("1000");
-        Parsing parsing = new Parsing(new PhotoMars(), response);
-        PhotoMars photoMars1 = (PhotoMars) parsing.parseDataFromJsonFailProperties();
-        System.out.println(photoMars1);
+//        MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
+//        String response = marsRoverPhotos.run("1000");
+//        Parsing parsing = new Parsing(new PhotoMars(), response);
+//        PhotoMars photoMars1 = (PhotoMars) parsing.parseDataFromJsonFailProperties();
+//        System.out.println(photoMars1);
     }
 }
