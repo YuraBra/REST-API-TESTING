@@ -2,6 +2,10 @@ package data;
 
 import lombok.Getter;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+
 @Getter
 public class APODObject {
     private String copyright;
@@ -12,6 +16,14 @@ public class APODObject {
     private String service_version;
     private String title;
     private String url;
+
+    public APODObject(){
+        this.date = getTodayDate();
+    }
+
+    public APODObject(String date) {
+        this.date = date;
+    }
 
     @Override
     public String toString() {
@@ -25,5 +37,24 @@ public class APODObject {
                 ", title='" + title + '\'' +
                 ", url='" + url + '\'' +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        APODObject that = (APODObject) o;
+        return Objects.equals(date, that.date);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(date);
+    }
+
+    private String getTodayDate(){
+        Date dateNow = new Date();
+        SimpleDateFormat formatForDateNow = new SimpleDateFormat("yyyy-MM-dd");
+        return formatForDateNow.format(dateNow);
     }
 }
