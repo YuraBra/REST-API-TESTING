@@ -1,5 +1,7 @@
 package data.techportObject;
 
+import java.util.List;
+
 public class TechportObject {
 
     private  Integer id;
@@ -15,5 +17,9 @@ public class TechportObject {
     private  String technologyMaturityEnd;        // Integer ???
     private  String responsibleMissionDirectorateOrOffice;
 
+
+
+    private List<String> closeoutDocuments;
+    
 
 }
