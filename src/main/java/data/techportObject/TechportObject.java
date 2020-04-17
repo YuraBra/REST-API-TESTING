@@ -16,10 +16,14 @@ public class TechportObject {
     private  String technologyMaturityCurrent;        // Integer ???
     private  String technologyMaturityEnd;        // Integer ???
     private  String responsibleMissionDirectorateOrOffice;
-
-
-
+    private List<LibraryItems> libraryItems;
     private List<String> closeoutDocuments;
+    private List<SupportingOrganizations> supportingOrganizations;
+    private List<PrimaryTas> primaryTas;
+    private List<AdditionalTas> additionalTas;
+
+
+
     
 
 }
