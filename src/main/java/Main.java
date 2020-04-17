@@ -18,10 +18,10 @@ public class Main {
 //        List<CMEObject> objects = mapper.readValue(responseFirst, new
 //                TypeReference<List<CMEObject>>() {      });
 //
-        Parsing parsing1 =  new Parsing(new APODObject(), responseSecond);
-        for (CMEObject c: objects) {
-            System.out.println(c);
-        }
+//        Parsing parsing1 =  new Parsing(new APODObject(), responseSecond);
+//        for (CMEObject c: objects) {
+//            System.out.println(c);
+//        }
 
 
 //        System.out.println(objects.getCopyright());
