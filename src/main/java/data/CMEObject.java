@@ -3,35 +3,44 @@ package data;
 import lombok.Getter;
 import lombok.ToString;
 
-import java.time.DateTimeException;
-import java.time.ZonedDateTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Objects;
+import java.util.TimeZone;
 
 @Getter
 @ToString
 public class CMEObject {
-    private String time21_5;
+    private TimeZone time21_5;
     private Double latitude;
     private Double longitude;
     private Double halfAngle;
     private Double speed;
     private String type;
-    private String isMostAccurate;
+    private Boolean isMostAccurate;
     private String associatedCMEID;
-    private StringBuilder note;
+    private String note;
     private String catalog;
 
-//    @Override
-//    public String toString() {
-//        return "CMEObject{" +
-//                "time21_5='" + time21_5 + '\'' +
-//                ", latitude='" + latitude + '\'' +
-//                ", explanation='" + explanation + '\'' +
-//                ", hdurl='" + hdurl + '\'' +
-//                ", media_type='" + media_type + '\'' +
-//                ", service_version='" + service_version + '\'' +
-//                ", title='" + title + '\'' +
-//                ", url='" + url + '\'' +
-//                '}';
-//    }
+    public CMEObject() {
+    }
+
+    public CMEObject(String catalog) {
+        this.catalog = catalog;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CMEObject that = (CMEObject) o;
+        return Objects.equals(catalog, that.catalog);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(catalog);
+    }
+
 }
 
