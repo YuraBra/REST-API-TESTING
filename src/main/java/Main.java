@@ -1,7 +1,9 @@
 import Parsing.Parsing;
 import com.fasterxml.jackson.core.JsonParser;
 import connection.AsteroidsNeoWs;
+import connection.Techport;
 import data.asteroidsObject.AsteroidObject;
+import data.techportObject.TechportObject;
 
 import java.io.IOException;
 
@@ -19,13 +21,20 @@ public class Main {
         Parsing parsing1 =  new Parsing(new APODObject(), responseSecond);
         APODObject object2 = (APODObject) parsing1.parseDataFromJson();
         System.out.println(object2);
-*/
+
         AsteroidsNeoWs asteroidsNeoWs = new AsteroidsNeoWs();
         String response = asteroidsNeoWs.run("2015-09-07","2015-09-08");
 
         Parsing parsing2 = new Parsing(new AsteroidObject(),response);
         AsteroidObject asteroidObject = (AsteroidObject) parsing2.parseDataFromJson();
-        System.out.println(asteroidObject);
+        System.out.println(asteroidObject);*/
+
+        Techport techport = new Techport();
+        String response = techport.run();
+
+        Parsing parsing = new Parsing(new TechportObject(),response);
+        TechportObject techportObject = (TechportObject) parsing.parseDataFromJson();
+        System.out.println(techportObject);
 
     }
 }

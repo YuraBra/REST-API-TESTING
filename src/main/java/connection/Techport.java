@@ -12,7 +12,15 @@ public class Techport extends BaseNasa {
     private  String techportURL;
 
     public Techport(){
-        baseTechportURL = baseUrl + "techport/api/projects";
+        baseTechportURL = baseUrl + "techport/api/projects/17792";
+    }
+
+    public String run() throws IOException {
+        techportURL = createURL();
+        Request request = new Request.Builder().url(techportURL).build();
+        try (Response response = client.newCall(request).execute()) {
+            return response.body().string();
+        }
     }
 
     public String run(String id) throws IOException {
@@ -23,9 +31,18 @@ public class Techport extends BaseNasa {
         }
     }
 
+
+
+    private String createURL(){
+        HttpUrl.Builder urlBuilder = HttpUrl.parse(baseTechportURL).newBuilder();
+        urlBuilder.addQueryParameter("api_key", apiKey);
+
+        return urlBuilder.build().toString();
+    }
+
     private String createURL(String idParametr){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(baseTechportURL).newBuilder();
-        urlBuilder.addQueryParameter("id_parameter","/" + idParametr);      // ?????????
+        //urlBuilder.addQueryParameter("id_parameter","/" + idParametr);      // ?????????
         urlBuilder.addQueryParameter("api_key", apiKey);
 
         return urlBuilder.build().toString();
