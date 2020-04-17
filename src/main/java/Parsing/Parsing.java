@@ -22,9 +22,8 @@ public class Parsing {
         return new ObjectMapper().readValue(response, instance.getClass());
     }
 
-    
+
     public Object parseDataListFromJson() throws JsonProcessingException {
-        return new ObjectMapper().readValue(response, new
-                TypeReference<List<CMEObject>>() {      });
+        return new ObjectMapper().readValue(response, new TypeReference<List<CMEObject>>() {      });
     }
 }

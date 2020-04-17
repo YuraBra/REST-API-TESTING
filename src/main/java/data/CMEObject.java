@@ -10,16 +10,17 @@ import java.util.TimeZone;
 @Getter
 @ToString
 public class CMEObject {
-    private TimeZone time21_5;
+    private String time21_5;
     private Double latitude;
     private Double longitude;
     private Double halfAngle;
     private Double speed;
     private String type;
-    private Boolean isMostAccurate;
+    private String isMostAccurate;
     private String associatedCMEID;
     private String note;
     private String catalog;
+    private String link;
 
     public CMEObject() {
     }
