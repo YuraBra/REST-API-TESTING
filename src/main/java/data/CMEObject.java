@@ -2,7 +2,6 @@ package data;
 
 import lombok.Getter;
 import lombok.ToString;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;

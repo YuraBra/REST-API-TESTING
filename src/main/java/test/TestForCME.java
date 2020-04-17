@@ -5,9 +5,9 @@ import connection.CME;
 import data.CMEObject;
 import org.junit.Assert;
 import org.junit.Test;
-
 import java.io.IOException;
 import java.util.List;
+
 
 public class TestForCME {
     private String catalog = "SWRC_CATALOG";
