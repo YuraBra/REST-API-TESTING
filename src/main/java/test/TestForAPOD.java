@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import testData.APODTestData;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
