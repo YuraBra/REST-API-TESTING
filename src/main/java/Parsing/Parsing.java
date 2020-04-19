@@ -1,6 +1,7 @@
 package Parsing;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class Parsing {
@@ -14,6 +15,9 @@ public class Parsing {
     }
 
     public Object parseDataFromJson() throws JsonProcessingException {
-        return  new ObjectMapper().readValue(response, instance.getClass());
+        return new ObjectMapper().readValue(response, instance.getClass());
+    }
+    public Object parseDataFromJsonFailProperties() throws JsonProcessingException {
+        return new ObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).readValue(response, instance.getClass());
     }
 }
