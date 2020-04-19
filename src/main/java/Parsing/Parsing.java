@@ -1,7 +1,6 @@
 package Parsing;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import data.CMEObject;
@@ -25,5 +24,9 @@ public class Parsing {
 
     public Object parseDataListFromJson() throws JsonProcessingException {
         return new ObjectMapper().readValue(response, new TypeReference<List<CMEObject>>() {      });
+
+    }
+    public Object parseDataFromJsonFailProperties() throws JsonProcessingException {
+        return new ObjectMapper().disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES).readValue(response, instance.getClass());
     }
 }
