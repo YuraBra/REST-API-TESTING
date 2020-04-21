@@ -18,4 +18,5 @@ public class Rover {
     private String max_date;
     private Integer total_photos;
     private List<Camera> cameras;
+
 }

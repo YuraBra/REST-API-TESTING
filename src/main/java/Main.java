@@ -6,8 +6,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
        // APOD apod = new APOD();
 
-        CME cme = new CME();
-        String responseFirst = cme.run();
+ //       CME cme = new CME();
+//        String responseFirst = cme.run();
 //        ObjectMapper mapper = new ObjectMapper();
 //
 //        List<CMEObject> objects = mapper.readValue(responseFirst, new
