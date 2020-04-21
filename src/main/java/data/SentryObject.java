@@ -1,23 +1,24 @@
 package data;
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.List;
 
 @Getter
+@ToString
 public class SentryObject {
     private String count;
     private SentrySignatureObject signature;
     private List<SentryDataObject> data;
 
-    @Override
-    public String toString(){
-        return "SentryObject{" +
-                "count='" + count + '\'' +
-                ", signature='" + signature + '\'' +
-                ", data='" + data + '\'' +
-                '}';
+    public SentrySignatureObject getSignature() {
+        return signature;
     }
-
+//public  SentryObject(SentrySignatureObject signature){
+//    this.signature =  signature;
+//
+//}
 
 }
+
