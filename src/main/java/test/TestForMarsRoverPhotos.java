@@ -30,7 +30,7 @@ public class TestForMarsRoverPhotos {
 
     @Test
     @Parameters(method = "inputData")
-    public void testConvertFromIntToArrayInt(Integer sol) throws IOException {
+    public void testForPhotos(Integer sol) throws IOException {
         MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
         String response = marsRoverPhotos.run(sol.toString());
         Parsing pars = new Parsing(PhotoMars.class, response);
