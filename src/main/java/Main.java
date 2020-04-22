@@ -1,14 +1,8 @@
-import Parsing.Parsing;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import connection.APOD;
+import parsing.Parsing;
 import connection.Techport;
-import data.APODObject;
 import data.techportObject.ListTechPortObjects;
-import data.techportObject.TechportObject;
 
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 

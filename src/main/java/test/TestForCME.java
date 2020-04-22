@@ -1,6 +1,6 @@
 package test;
 
-import Parsing.Parsing;
+import parsing.Parsing;
 import connection.CME;
 import data.CMEObject;
 import org.junit.Assert;

@@ -1,6 +1,6 @@
 package test;
 
-import Parsing.Parsing;
+import parsing.Parsing;
 import connection.MarsRoverPhotos;
 import data.marsRoverPhotos.Photo;
 import data.marsRoverPhotos.PhotoMars;

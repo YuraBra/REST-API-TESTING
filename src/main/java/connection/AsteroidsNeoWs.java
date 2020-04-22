@@ -19,9 +19,7 @@ public class AsteroidsNeoWs extends BaseNasa {
                 .url(url)
                 .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     public String run(String startDate) throws IOException {
@@ -41,9 +39,7 @@ public class AsteroidsNeoWs extends BaseNasa {
                 .url(url)
                 .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     private String createUrl() {
