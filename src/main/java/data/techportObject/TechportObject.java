@@ -37,23 +37,8 @@ public class TechportObject {
     private List<PrimaryTas> primaryTas;
     private List<AdditionalTas> additionalTas;
 
-
-    public void setTitle(String title){
-        this.title = title;
+    public String getTitle(){
+        return  title;
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TechportObject that = (TechportObject) o;
-        return Objects.equals(title, that.title);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(title);
-    }
-    
 
 }

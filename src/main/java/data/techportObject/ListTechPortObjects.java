@@ -13,8 +13,8 @@ public class ListTechPortObjects {
     public ListTechPortObjects(){
 
     }
-    public ListTechPortObjects(String titleOfTechpoertProj){
-        project.setTitle(titleOfTechpoertProj);
+    public TechportObject getProject(){
+        return project;
     }
 
 }
