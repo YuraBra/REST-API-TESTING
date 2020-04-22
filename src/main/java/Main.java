@@ -1,5 +1,8 @@
+import parsing.Parsing;
+import connection.Techport;
+import data.techportObject.ListTechPortObjects;
+
 import java.io.IOException;
-import java.util.List;
 
 public class Main {
 
@@ -36,6 +39,20 @@ public class Main {
 //        Parsing parsing = new Parsing(new PhotoMars(), response);
 //        PhotoMars photoMars1 = (PhotoMars) parsing.parseDataFromJsonFailProperties();
 //        System.out.println(photoMars1);
+
+       // APOD apod = new APOD();
+       // String responseSecond = apod.run();
+      //  Parsing parsing1 =  new Parsing(new APODObject(), responseSecond);
+       // APODObject object2 = (APODObject) parsing1.parseDataFromJson();
+      //  System.out.println(object2);
+
+        Techport techport = new Techport();
+        String response = techport.run();
+
+        Parsing parsing = new Parsing(new ListTechPortObjects(), response);
+        ListTechPortObjects techportObjects = (ListTechPortObjects) parsing.parseDataFromJson();
+        System.out.println(techportObjects);
+
 
     }
 }

@@ -1,6 +1,6 @@
 package test;
 
-import Parsing.Parsing;
+import parsing.Parsing;
 import connection.Sentry;
 import data.SentryObject;
 import org.junit.Assert;
