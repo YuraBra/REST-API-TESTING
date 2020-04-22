@@ -5,6 +5,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.net.ConnectException;
 
 public class APOD extends BaseNasa {
     private String BaseAPODUrl;
@@ -18,10 +19,7 @@ public class APOD extends BaseNasa {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     public String run(String date) throws IOException {
@@ -30,9 +28,7 @@ public class APOD extends BaseNasa {
                 .url(url)
                 .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     private String createUrl(){

@@ -19,9 +19,7 @@ public class Sentry extends BaseNasa {
                 .url(url)
                 .build();
 
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     private String createUrl(){

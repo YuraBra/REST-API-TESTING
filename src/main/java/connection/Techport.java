@@ -21,9 +21,7 @@ public class Techport extends BaseNasa {
     public String run() throws IOException {
         techportURL = createURL();
         Request request = new Request.Builder().url(techportURL).build();
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
-        }
+        return getResponse(request);
     }
 
     private String createURL(){
