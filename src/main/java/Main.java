@@ -56,8 +56,8 @@ public class Main {
         String response = techport.run();
 
         Parsing parsing = new Parsing(new ListTechPortObjects(), response);
-        ListTechPortObjects techportObject = (ListTechPortObjects) parsing.parseDataFromJson();
-        System.out.println(techportObject);
+        ListTechPortObjects techportObjects = (ListTechPortObjects) parsing.parseDataFromJson();
+        System.out.println(techportObjects);
 
 
     }

@@ -1,11 +1,15 @@
 package data.techportObject;
 
 import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
 import java.util.List;
+import java.util.Objects;
+
 @Getter
 @ToString
+
 public class TechportObject {
 
     private Integer id;
@@ -34,7 +38,22 @@ public class TechportObject {
     private List<AdditionalTas> additionalTas;
 
 
+    public void setTitle(String title){
+        this.title = title;
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TechportObject that = (TechportObject) o;
+        return Objects.equals(title, that.title);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(title);
+    }
     
 
 }

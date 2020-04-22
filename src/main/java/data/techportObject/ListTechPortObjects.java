@@ -10,4 +10,11 @@ public class ListTechPortObjects {
 
     private TechportObject project;
 
+    public ListTechPortObjects(){
+
+    }
+    public ListTechPortObjects(String titleOfTechpoertProj){
+        project.setTitle(titleOfTechpoertProj);
+    }
+
 }
