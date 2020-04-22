@@ -17,6 +17,12 @@ public class TechportObject {
     private String technologyMaturityEnd;        // Integer ???
     private String responsibleProgram;
     private String responsibleMissionDirectorateOrOffice;
+    private List<LeadOrganization> leadOrganization;
+    private List<String> workLocations;
+    private List<String> programDirectors;
+    private List<String> programManagers;
+    private List<String> projectManagers;
+    private List<String> principalInvestigators;
     private List<LibraryItems> libraryItems;
     private List<String> closeoutDocuments;
     private List<SupportingOrganizations> supportingOrganizations;
