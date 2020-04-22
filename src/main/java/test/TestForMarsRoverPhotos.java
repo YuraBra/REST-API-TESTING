@@ -2,7 +2,6 @@ package test;
 
 import Parsing.Parsing;
 import connection.MarsRoverPhotos;
-import data.APODObject;
 import data.marsRoverPhotos.Photo;
 import data.marsRoverPhotos.PhotoMars;
 import junitparams.JUnitParamsRunner;
@@ -31,14 +30,14 @@ public class TestForMarsRoverPhotos {
 
     @Test
     @Parameters(method = "inputData")
-    public void testConvertFromIntToArrayInt(Integer sol) throws IOException {
+    public void testForPhotos(Integer sol) throws IOException {
         MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
         String response = marsRoverPhotos.run(sol.toString());
         Parsing pars = new Parsing(PhotoMars.class, response);
-        PhotoMars object = (PhotoMars)pars.parseDataFromJsonFailProperties();
+        PhotoMars object = (PhotoMars) pars.parseDataFromJson();
         List<Photo> photos = object.getPhotos();
-        for (Photo photo : photos){
-            Assert.assertEquals(sol, photo.getSol());
+        for (Photo photo : photos) {
+            Assert.assertEquals("parameter sol is not similar", sol, photo.getSol());
         }
     }
 }
