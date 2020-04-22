@@ -34,7 +34,7 @@ public class TestForMarsRoverPhotos {
         MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
         String response = marsRoverPhotos.run(sol.toString());
         Parsing pars = new Parsing(PhotoMars.class, response);
-        PhotoMars object = (PhotoMars) pars.parseDataFromJsonFailProperties();
+        PhotoMars object = (PhotoMars) pars.parseDataFromJson();
         List<Photo> photos = object.getPhotos();
         for (Photo photo : photos) {
             Assert.assertEquals("parameter sol is not similar", sol, photo.getSol());

@@ -29,17 +29,9 @@ public class Parsing {
         return new ObjectMapper().readValue(response, clazz);
     }
 
-
     public Object parseDataListFromJson() throws JsonProcessingException {
         return new ObjectMapper().readValue(response, new TypeReference<List<CMEObject>>() {
         });
 
-    }
-
-    public Object parseDataFromJsonFailProperties() throws JsonProcessingException {
-        if (instance != null) {
-            clazz = instance.getClass();
-        }
-        return new ObjectMapper().readValue(response, clazz);
     }
 }
