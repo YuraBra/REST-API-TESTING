@@ -1,5 +1,10 @@
 package data.techportObject;
 
+import lombok.Getter;
+import lombok.ToString;
+
+@Getter
+@ToString
 public class SupportingOrganizations {
 
     private String name;

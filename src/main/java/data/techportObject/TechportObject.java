@@ -1,7 +1,11 @@
 package data.techportObject;
 
-import java.util.List;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.List;
+@Getter
+@ToString
 public class TechportObject {
 
     private Integer id;
@@ -17,7 +21,7 @@ public class TechportObject {
     private String technologyMaturityEnd;        // Integer ???
     private String responsibleProgram;
     private String responsibleMissionDirectorateOrOffice;
-    private List<LeadOrganization> leadOrganization;
+    private LeadOrganization leadOrganization;
     private List<String> workLocations;
     private List<String> programDirectors;
     private List<String> programManagers;

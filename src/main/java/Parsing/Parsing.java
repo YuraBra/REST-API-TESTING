@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import data.CMEObject;
+import data.techportObject.ListTechPortObjects;
 
 import java.util.List;
 

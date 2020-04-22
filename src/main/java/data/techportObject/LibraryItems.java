@@ -1,13 +1,17 @@
 package data.techportObject;
 
-import java.util.List;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.List;
+@Getter
+@ToString
 public class LibraryItems {
 
     private Integer id;
     private String title;
     private String type;
-    private Integer description;
+    private String description;
     private String externalUrl;
     private String publishedBy;
     private String publishedDate;      // Integer ???
