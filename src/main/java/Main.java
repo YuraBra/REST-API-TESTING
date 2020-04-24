@@ -1,6 +1,6 @@
-import parsing.Parsing;
-import connection.Techport;
-import data.techportObject.ListTechPortObjects;
+import nasa.parsing.Parsing;
+import nasa.connection.Techport;
+import nasa.data.techportObject.ListTechPortObjects;
 
 import java.io.IOException;
 
@@ -36,8 +36,8 @@ public class Main {
 //        System.out.println(asteroidObject);
 //        MarsRoverPhotos marsRoverPhotos = new MarsRoverPhotos();
 //        String response = marsRoverPhotos.run("1000");
-//        Parsing parsing = new Parsing(new PhotoMars(), response);
-//        PhotoMars photoMars1 = (PhotoMars) parsing.parseDataFromJsonFailProperties();
+//        Parsing nasa.parsing = new Parsing(new PhotoMars(), response);
+//        PhotoMars photoMars1 = (PhotoMars) nasa.parsing.parseDataFromJsonFailProperties();
 //        System.out.println(photoMars1);
 
        // APOD apod = new APOD();
