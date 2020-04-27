@@ -15,10 +15,7 @@ public class SentryObject {
     public SentrySignatureObject getSignature() {
         return signature;
     }
-//public  SentryObject(SentrySignatureObject signature){
-//    this.signature =  signature;
-//
-//}
+
 
 }
 
