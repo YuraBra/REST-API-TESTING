@@ -22,7 +22,7 @@ public class TestForAddCard {
             Assert.assertEquals(expectedResponse, actual);
         } catch (IOException e) {
             Assert.fail();
-        }
+        }//токен? второй асерт статус 200?
     }
 
 }
