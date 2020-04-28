@@ -14,12 +14,14 @@ public class UserData extends BaseScooter{
         this.url = this.baseUrl + "identity-service/accounts/" + user.getId();
     }
 
-    public int run() throws IOException {
+    public /*int*/  String run() throws IOException {
+        System.out.println(url); // DELETE
         Request request = new Request.Builder()
                 .url(url)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-            return response.code();
+            //return response.code();
+            return response.body().string();
         }
     }
 }
