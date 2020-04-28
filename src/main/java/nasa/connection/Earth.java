@@ -13,8 +13,8 @@ public class Earth extends BaseNasa {
         this.BaseEarthUrl = this.baseUrl + "planetary/earth/assets";
     }
 
-    public String run(Float lon, Float lat) throws IOException {
-        String url = createUrl(lon.toString(), lat.toString());
+    public String run(Float lat, Float lon) throws IOException {
+        String url = createUrl(lat.toString(), lon.toString());
         Request request = new Request.Builder()
                 .url(url)
                 .build();
@@ -24,10 +24,10 @@ public class Earth extends BaseNasa {
         }
     }
 
-    private String createUrl(String lon, String lat){
+    private String createUrl(String lat, String lon){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(BaseEarthUrl).newBuilder();
-        urlBuilder.addQueryParameter("lon", lon);
         urlBuilder.addQueryParameter("lat", lat);
+        urlBuilder.addQueryParameter("lon", lon);
         urlBuilder.addQueryParameter("api_key", apiKey);
         return urlBuilder.build().toString();
     }
