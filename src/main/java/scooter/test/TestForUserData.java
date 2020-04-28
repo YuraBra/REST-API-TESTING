@@ -33,9 +33,9 @@ public class TestForUserData {
 
         }
 
-        UserData userDate = new UserData(userID);// (user.getID)
+        UserData userData = new UserData(userID);// (user.getID)
         try {
-            actualStatus = userDate.run();
+            actualStatus = userData.run();
         } catch (IOException e) {
 
         }
