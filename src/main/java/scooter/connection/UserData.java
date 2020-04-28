@@ -10,7 +10,7 @@ public class UserData extends BaseScooter{
 
     private String url;
 
-    private String token = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiMWMxY2" +
+    private String adminToken = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJiMWMxY2" +
             "E4Mi1iMTE2LTQ0YmUtOTI4Mi1mYWQ4OTI2OThmNjEiLCJyb2xlIjoiW1" +
             "wiQURNSU5cIl0iLCJpc3MiOiJsb2NhbGhvc3QiLCJleHAiOjE1OTQxMjEw" +
             "NDh9.CzYWsglmOeDGjELd6wlWYuUSD3TO9am7wtpPzcOtPP4P47pdk6XcYTc_" +
@@ -18,16 +18,16 @@ public class UserData extends BaseScooter{
             "4OnmEQO1ZHqjqwn6g0XPBx8SkUouor88cdR0x_Yrr2_4xtl9YCVP6iafjpNHye" +
             "OGBDFjbG9t8g2-_CgRYrGvZnTu8CG1YvqkzhT-u4lrOSSGZCXTaQObHAeL7osLp" +
             "NcckdlRAu016tJAiz6IL-ybwjJE2nLmZsHXzjErfYc4WfpXYsSkLwVu09-wLPOE" +
-            "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";
+            "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";                                      // Remove
 
     public UserData(User user) {
         this.url = this.baseUrl + "identity-service/accounts/" + user.getId();
     }
 
     public /*String*/  int run() throws IOException {
-        System.out.println(url); // DELETE
+        System.out.println(url);                                    // DELETE
         Request request = new Request.Builder()
-                .header("Authorization", "Bearer " + token)
+                .header("Authorization", "Bearer " + adminToken)
                 .url(url)
                 .build();
         try (Response response = client.newCall(request).execute()) {
