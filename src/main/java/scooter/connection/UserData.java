@@ -15,6 +15,10 @@ public class UserData extends BaseScooter{
     public UserData(User user) {
         this.url = this.baseUrl + "identity-service/accounts/" + user.getId();
     }
+    public UserData(String userID) {
+        this.url = this.baseUrl + "identity-service/accounts/" + userID;
+    }
+
 
     public /*String*/  int run() throws IOException {
         System.out.println(url);                                    // DELETE
