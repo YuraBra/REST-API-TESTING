@@ -6,9 +6,12 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class SignIn extends BaseScooter {
     private String url;
+    public final String replace = "Bearer ";
+    public final  String emptyString = "";
 
     public SignIn() {
         this.url = this.baseUrl + "identity-service/accounts/sign-in";
@@ -30,5 +33,9 @@ public class SignIn extends BaseScooter {
         try (Response response = client.newCall(request).execute()) {
             return response;
         }
+    }
+
+    public String getUserToken (String email, String password) throws IOException {
+        return getResponse(email, password).header("Authorization").replace(replace, emptyString);
     }
 }
