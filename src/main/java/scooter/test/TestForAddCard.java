@@ -3,9 +3,11 @@ package scooter.test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import scooter.connection.AuthorizedUser;
 import scooter.connection.Card;
-import scooter.connection.SignIn;
 import scooter.data.CardObject;
+import scooter.data.Data;
+import scooter.data.User;
 
 import java.io.IOException;
 
@@ -13,15 +15,17 @@ import static scooter.data.Data.*;
 
 public class TestForAddCard {
 
-    private SignIn signIn;
+    private AuthorizedUser autorizedUser;
     private String userToken;
+    private User user;
     private CardObject userCard;
     private String expectedResponse = "card was successful added";
 
     @Before
     public void signUser() throws IOException {
-        signIn = new SignIn();
-        userToken = signIn.getUserToken(EMAIL, PASSWORD);
+        autorizedUser = new AuthorizedUser();
+        user = new User(EMAIL, PASSWORD);
+        userToken = autorizedUser.getBearerTokenAuthorizedUser(user);
     }
 
     @Test

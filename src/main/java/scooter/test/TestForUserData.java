@@ -1,11 +1,6 @@
 package scooter.test;
 
 import org.junit.Test;
-import scooter.connection.SignUp;
-import scooter.connection.UserData;
-import scooter.data.User;
-
-import java.io.IOException;
 
 public class TestForUserData {
     private int actualStatus;
@@ -42,4 +37,6 @@ public class TestForUserData {
 //
 //    }
     }
+ */
+}
 }
