@@ -3,9 +3,13 @@ package scooter.test;
 import org.junit.Assert;
 import org.junit.Test;
 import scooter.connection.ScootersService;
+import scooter.data.ScooterDto;
 
 import java.io.IOException;
 import java.util.Arrays;
+
+import static scooter.data.Data.ADMIN_TOKEN;
+import static scooter.data.Data.USER_TOKEN;
 
 public class TestScooters {
     private int expectedStatusCode = 200;
@@ -42,8 +46,11 @@ public class TestScooters {
     }
 
     @Test
-    public void testAddedScooter(){
-
+    public void testAddedScooter() throws IOException {
+        String randomScooterId = scootersService.getRandomActiveScooterId();
+        String scooterStatusByIdAsUser = scootersService.getScooterStatusById(randomScooterId, USER_TOKEN);
+        String scooterStatusByIdAsAdmin = scootersService.getScooterStatusById(randomScooterId, ADMIN_TOKEN);
+        Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsUser);
     }
 
 }

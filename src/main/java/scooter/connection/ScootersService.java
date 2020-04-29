@@ -15,6 +15,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static scooter.data.Data.ADMIN_TOKEN;
+import static scooter.data.Data.USER_TOKEN;
 
 @Getter
 public class ScootersService extends BaseScooter {
@@ -56,6 +57,13 @@ public class ScootersService extends BaseScooter {
                 .collect(Collectors.toList());
         return allScooters.get(new Random().nextInt(allScooters.size())).getId();
     }
+
+    public String getScooterStatusById(String scooterId,String token) throws IOException {
+        Request request = requestUtil.getRequest(url + "/status/" + scooterId,token);
+        return requestUtil.getResponse(request);
+    }
+
+
 }
 
 
