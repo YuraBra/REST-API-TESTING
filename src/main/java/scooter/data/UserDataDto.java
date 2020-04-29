@@ -8,6 +8,7 @@ import lombok.Getter;
 public class UserDataDto {
 
     private String id;
+    private String activationToken;
     private String email;
     private String password;
     private String firstName;
