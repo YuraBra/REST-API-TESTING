@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 //@AllArgsConstructor
-public class UserDataDto {
+public class User {
 
     private String id;
     private String email;
@@ -16,7 +16,7 @@ public class UserDataDto {
     private String lastName;
 
 
-    public UserDataDto(String email, String password, String firstName, String lastName) {
+    public User(String email, String password, String firstName, String lastName) {
         this.email = email;
         this.password = password;
         this.firstName = firstName;

@@ -2,7 +2,7 @@ package scooter.connection;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import scooter.data.UserDataDto;
+import scooter.data.User;
 
 import java.io.IOException;
 
@@ -26,12 +26,12 @@ public class SignUp extends BaseScooter {
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
     // method for FTC TestForUSerData
-    private RequestBody createBody(UserDataDto userDataDto){
+    private RequestBody createBody(User user){
         String json = "{" +
-                "\"email\":\"" + userDataDto.getEmail() + "\"," +
-                "\"firstName\":\""+ userDataDto.getFirstName() +"\"," +
-                "\"lastName\":\"" + userDataDto.getLastName() + "\"," +
-                "\"password\":\""+ userDataDto.getPassword() + "\"" +
+                "\"email\":\"" + user.getEmail() + "\"," +
+                "\"firstName\":\""+ user.getFirstName() +"\"," +
+                "\"lastName\":\"" + user.getLastName() + "\"," +
+                "\"password\":\""+ user.getPassword() + "\"" +
                 "}";
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
@@ -40,7 +40,7 @@ public class SignUp extends BaseScooter {
         return post(url, createBody(email, firstName, lastName, password, isRandEmail));
     }
     // method for FTC TestForUSerData
-    public String getResponse(UserDataDto userDataDto) throws IOException {
-        return post(url, createBody(userDataDto));
+    public String getResponse(User user) throws IOException {
+        return post(url, createBody(user));
     }
 }

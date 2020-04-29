@@ -8,7 +8,7 @@ import scooter.connection.SignIn;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
 import scooter.data.Data;
-import scooter.data.UserDataDto;
+import scooter.data.User;
 import scooter.util.SubStringSearcher;
 import scooter.util.TokenDecoder;
 
@@ -18,21 +18,17 @@ import java.util.Objects;
 
 public class TestForUserData {
 
-    UserDataDto userDataDto;
+    User user;
     String activateToken;
     String bearerCode;
 
-    String email = "testforapi.i@mail.com";
-    String password = "qwerty";
-    String firstName = "Alex9";
-    String lastName = "Bor9";
 
     @Before
     public void createUser() throws IOException {
 
-        userDataDto = new UserDataDto(email, password, firstName, lastName);
+        user = new User(Data.emailUserDataTest_1, Data.passwordUserDataTest_1, Data.firstNameUserDataTest_1, Data.lastNameUserDataTest_1);
         SignUp signUp = new SignUp();
-        activateToken = signUp.getResponse(userDataDto);
+        activateToken = signUp.getResponse(user);
         System.out.println("Step 1");
         System.out.println(activateToken);
         ActivateAccount acc = new ActivateAccount();
@@ -40,7 +36,7 @@ public class TestForUserData {
         System.out.println("Step 2");
         System.out.println(actualCode);
         SignIn signIn = new SignIn();
-        bearerCode = Objects.requireNonNull(signIn.getResponse(email, password)
+        bearerCode = Objects.requireNonNull(signIn.getResponse(Data.emailUserDataTest_1, Data.passwordUserDataTest_1)
                 .header("Authorization")).replace("Bearer ", "");
         System.out.println("Step 3");
         System.out.println(bearerCode);
@@ -61,7 +57,6 @@ public class TestForUserData {
 
     @Test
     public void getUserData() {
-        //int actualStatus;
         String respSerID;
         String actualMailFromJSON;
         String userId = getUserIdFromDecodedToken(bearerCode);
@@ -71,7 +66,7 @@ public class TestForUserData {
             System.out.println("Step 7");
             System.out.println(respSerID);
             actualMailFromJSON = getMail(respSerID);
-            Assert.assertEquals("String", actualMailFromJSON);
+            Assert.assertEquals("testforapi.i@mail.com", actualMailFromJSON);
         } catch (IOException e) {
             Assert.fail();
         }

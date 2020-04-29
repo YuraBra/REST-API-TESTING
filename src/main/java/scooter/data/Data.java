@@ -16,6 +16,11 @@ public final class Data {
     public static final String firstSubStrForUserMail="{\"email\":\"";
     public static final String secondSubStrForUserMail="\",\"firstN";
 
+    public static final String emailUserDataTest_1 = "testforapi.i@mail.com";
+    public static final String passwordUserDataTest_1 = "qwerty";
+    public static final String firstNameUserDataTest_1 = "Alex9";
+    public static final String lastNameUserDataTest_1 = "Bor9";
+
 
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
     public static final String SCOOTER_ID = "f1062bdd-c543-4073-9336-c3e06b1101b3";

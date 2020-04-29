@@ -1,24 +1,13 @@
-import nasa.connection.Techport;
-import nasa.data.techportObject.ListTechPortObjects;
-import nasa.parsing.Parsing;
-import scooter.connection.ActivateAccount;
-import scooter.connection.SignIn;
-import scooter.connection.SignUp;
-import scooter.connection.UserData;
 import scooter.data.Data;
-import scooter.data.UserDataDto;
-import org.apache.commons.codec.binary.Base64;
 import scooter.util.SubStringSearcher;
-import scooter.util.TokenDecoder;
 
 import java.io.IOException;
-import java.util.Objects;
 
 public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        /*UserDataDto userDataDto;
+        /*User userDataDto;
         String activateToken;
         String bearerCode;
 
@@ -26,7 +15,7 @@ public class Main {
         String password = "qwerty";
         String firstName = "Alex7";
         String lastName = "Bor7";
-        userDataDto = new UserDataDto(email,password,firstName,lastName);
+        userDataDto = new User(email,password,firstName,lastName);
         SignUp signUp = new SignUp();
         activateToken = signUp.getResponse(userDataDto);
         System.out.println("Step 1");
