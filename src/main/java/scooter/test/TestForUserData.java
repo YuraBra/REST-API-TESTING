@@ -7,6 +7,8 @@ import scooter.connection.SignIn;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
 import scooter.data.UserDataDto;
+import org.apache.commons.codec.binary.Base64;
+
 
 import java.io.IOException;
 import java.util.Objects;
@@ -14,9 +16,16 @@ import java.util.Objects;
 public class TestForUserData {
     UserDataDto userDataDto;
     String activateToken;
+    String bearerCode;
+
+    String email;
+    String password;
+    String firstName;
+    String lastName;
+
     @Before
     public void createUser(){
-        userDataDto = new UserDataDto("dp184taqc@gmail.com","qwerty","Engineer","QA");
+        userDataDto = new UserDataDto(email,password,firstName,lastName);
     }
     @Test
     public void setUpUser(){
@@ -39,10 +48,9 @@ public class TestForUserData {
     }
     @Test
     public void singInUser(){
-        // SingIn
         SignIn signIn = new SignIn();
         try {
-            String bearerCode = Objects.requireNonNull(signIn.getResponse("dp184taqc@gmail.com", "qwerty")
+            bearerCode = Objects.requireNonNull(signIn.getResponse(email, password)
                     .header("Authorization")).replace("Bearer ", "");
             System.out.println("Step 3");
             System.out.println(bearerCode);
@@ -50,18 +58,30 @@ public class TestForUserData {
             e.printStackTrace();
         }
     }
+    // сделан
+    private String getUserIdFromDecodedToken(String token){
 
-    private String getUserIdFromDecodedToken(){
+        String[] split_string = token.split("\\.");
+        String base64EncodedBody = split_string[1];
+        Base64 base64Url = new Base64(true);
+        System.out.println("~~~~~~~~~ JWT Body ~~~~~~~");
+        String body = new String(base64Url.decode(base64EncodedBody));
+        System.out.println(body);
 
+        String firstSubStr = "{\"sub\":\"";
+        int first = body.indexOf(firstSubStr);
+        String secondSubStr = "\",\"role";
+        int second = body.indexOf(secondSubStr);
+        String subStr = body.substring(first + firstSubStr.length(),second);
         System.out.println("Step 4");
-        //System.out.println(UserID);
-        return null;
+        System.out.println(subStr);
+        return subStr;
     }
 
     @Test
     public void getUserData(){
         int actualStatus;
-        String userId = getUserIdFromDecodedToken();
+        String userId = getUserIdFromDecodedToken(bearerCode);
         UserData userData = new UserData(userId);
         try {
             actualStatus = userData.run();

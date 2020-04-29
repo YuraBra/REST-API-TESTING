@@ -11,6 +11,8 @@ public final class Data {
             "OGBDFjbG9t8g2-_CgRYrGvZnTu8CG1YvqkzhT-u4lrOSSGZCXTaQObHAeL7osLp" +
             "NcckdlRAu016tJAiz6IL-ybwjJE2nLmZsHXzjErfYc4WfpXYsSkLwVu09-wLPOE" +
             "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";
+
+
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
     public static final String SCOOTER_ID = "f1062bdd-c543-4073-9336-c3e06b1101b3";
     public static final String EMAIL = "dp184test@gmail.com";
