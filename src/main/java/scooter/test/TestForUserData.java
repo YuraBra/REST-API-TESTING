@@ -7,8 +7,10 @@ import scooter.connection.ActivateAccount;
 import scooter.connection.SignIn;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
+import scooter.data.Data;
 import scooter.data.UserDataDto;
-import org.apache.commons.codec.binary.Base64;
+import scooter.util.SubStringSearcher;
+import scooter.util.TokenDecoder;
 
 
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class TestForUserData {
 
     @Before
     public void createUser() throws IOException {
+
         userDataDto = new UserDataDto(email, password, firstName, lastName);
         SignUp signUp = new SignUp();
         activateToken = signUp.getResponse(userDataDto);
@@ -45,43 +48,22 @@ public class TestForUserData {
 
     private String getUserIdFromDecodedToken(String token) {
 
-        String[] split_string = token.split("\\.");
-        String base64EncodedBody = split_string[1];
-        Base64 base64Url = new Base64(true);
-        System.out.println("Step 4 decoded token");
-        String body = new String(base64Url.decode(base64EncodedBody));
-        System.out.println(body);
-
-        String firstSubStr = "{\"sub\":\"";
-        int first = body.indexOf(firstSubStr);
-        String secondSubStr = "\",\"role";
-        int second = body.indexOf(secondSubStr);
-        String subStr = body.substring(first + firstSubStr.length(), second);
-        System.out.println("Step 5");
-        System.out.println(subStr);
-        return subStr;
+        String body = TokenDecoder.getBodyFromToken(token);
+        String userID = SubStringSearcher.getSubString(body,Data.firstSubStrForUserID,Data.secondSubStrForUserID);
+        return userID;
     }
 
     private String getMail(String jsonAnswer){
 
-        String firstSubStr = "{\"email\":\"";
-        int first = jsonAnswer.indexOf(firstSubStr);
-        String secondSubStr = "\",\"firstN";
-        int second = jsonAnswer.indexOf(secondSubStr);
-        String subStr = jsonAnswer.substring(first + firstSubStr.length(), second);
-        System.out.println("Step 6");
-        System.out.println(subStr);
-        return subStr;
+        String mail = SubStringSearcher.getSubString(jsonAnswer, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
+        return mail;
     }
 
-    private String searchSubString(String str,String firstSubStr,String secondSubStr){
-        return null;
-    }
 
 
     @Test
     public void getUserData() {
-        int actualStatus;
+        //int actualStatus;
         String respSerID;
         String actualMailFromJSON;
         String userId = getUserIdFromDecodedToken(bearerCode);

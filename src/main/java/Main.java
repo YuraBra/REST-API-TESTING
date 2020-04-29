@@ -5,8 +5,11 @@ import scooter.connection.ActivateAccount;
 import scooter.connection.SignIn;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
+import scooter.data.Data;
 import scooter.data.UserDataDto;
 import org.apache.commons.codec.binary.Base64;
+import scooter.util.SubStringSearcher;
+import scooter.util.TokenDecoder;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -15,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        UserDataDto userDataDto;
+        /*UserDataDto userDataDto;
         String activateToken;
         String bearerCode;
 
@@ -60,8 +63,10 @@ public class Main {
         //actualStatus = userData.run();
         respSerID= userData.run();
         System.out.println("Step 5");
-        System.out.println(respSerID);
-
+        System.out.println(respSerID);  */
+        String body = "{\"email\":\"testforapi.i@mail.com\",\"firstName\":\"Alex9\",\"lastName\":\"Bor9\"}";
+        SubStringSearcher.getSubString(body, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
+        //System.out.println(mail);
 
     }
 }

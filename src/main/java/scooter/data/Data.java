@@ -11,6 +11,10 @@ public final class Data {
             "OGBDFjbG9t8g2-_CgRYrGvZnTu8CG1YvqkzhT-u4lrOSSGZCXTaQObHAeL7osLp" +
             "NcckdlRAu016tJAiz6IL-ybwjJE2nLmZsHXzjErfYc4WfpXYsSkLwVu09-wLPOE" +
             "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";
+    public static final String firstSubStrForUserID="{\"sub\":\"";
+    public static final String secondSubStrForUserID="\",\"role";
+    public static final String firstSubStrForUserMail="{\"email\":\"";
+    public static final String secondSubStrForUserMail="\",\"firstN";
 
 
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
