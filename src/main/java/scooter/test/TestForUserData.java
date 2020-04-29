@@ -18,10 +18,10 @@ public class TestForUserData {
     String activateToken;
     String bearerCode;
 
-    String email;
-    String password;
-    String firstName;
-    String lastName;
+    String email = "testforapi.d@mail.com";
+    String password = "qwerty";
+    String firstName = "Alex4";
+    String lastName = "Bor3";
 
     @Before
     public void createUser(){
