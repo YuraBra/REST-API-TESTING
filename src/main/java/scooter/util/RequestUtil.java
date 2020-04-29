@@ -2,14 +2,12 @@ package scooter.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.Getter;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
 
-import static scooter.data.Data.ADMIN_TOKEN;
 import static scooter.util.JsonUtil.*;
 
 public class RequestUtil {
@@ -37,6 +35,14 @@ public class RequestUtil {
     public <T> Request postRequest(String httpUrl, T payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
+                .post(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
+
+    public <T> Request postRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
                 .post(createRequestBody(createJsonFromObject(payload)))
                 .build();
     }

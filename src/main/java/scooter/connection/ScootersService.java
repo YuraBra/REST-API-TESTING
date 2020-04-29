@@ -62,8 +62,6 @@ public class ScootersService extends BaseScooter {
         Request request = requestUtil.getRequest(url + "/status/" + scooterId,token);
         return requestUtil.getResponse(request);
     }
-
-
 }
 
 

@@ -1,5 +1,5 @@
 package scooter.test;
-import scooter.data.Data;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class TestForAddCard {
     private String expectedResponse = "card was successful added";
 
     @Before
-    public void signUser () throws IOException {
+    public void signUser() throws IOException {
         signIn = new SignIn();
         userToken = signIn.getUserToken(EMAIL, PASSWORD);
     }
