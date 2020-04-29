@@ -20,7 +20,7 @@ public class TestForUserData {
         // зарегистрировать юзер
         // получить его ID
         // админ запрос на его данніе
-
+/*
         //User user = new User();
 //        User user = new User("dp184taqc@gmail.com","qwerty","Engineer","QA");
 //        //user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
@@ -41,6 +41,5 @@ public class TestForUserData {
 //        }
 //
 //    }
-
     }
 }
