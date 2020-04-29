@@ -3,11 +3,13 @@ package scooter.test;
 import org.junit.Before;
 import org.junit.Test;
 import scooter.connection.ActivateAccount;
+import scooter.connection.SignIn;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
 import scooter.data.UserDataDto;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class TestForUserData {
     UserDataDto userDataDto;
@@ -38,12 +40,36 @@ public class TestForUserData {
     @Test
     public void singInUser(){
         // SingIn
+        SignIn signIn = new SignIn();
+        try {
+            String bearerCode = Objects.requireNonNull(signIn.getResponse("dp184taqc@gmail.com", "qwerty")
+                    .header("Authorization")).replace("Bearer ", "");
+            System.out.println("Step 3");
+            System.out.println(bearerCode);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
+    private String getUserIdFromDecodedToken(){
+
+        System.out.println("Step 4");
+        //System.out.println(UserID);
+        return null;
+    }
+
     @Test
     public void getUserData(){
-
-
-
+        int actualStatus;
+        String userId = getUserIdFromDecodedToken();
+        UserData userData = new UserData(userId);
+        try {
+            actualStatus = userData.run();
+            System.out.println("Step 5");
+            System.out.println(actualStatus);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
