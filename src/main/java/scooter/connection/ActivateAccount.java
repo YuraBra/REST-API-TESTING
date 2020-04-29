@@ -1,7 +1,7 @@
 package scooter.connection;
 
 import okhttp3.Request;
-import okhttp3.Response;
+import scooter.util.RequestUtil;
 
 import java.io.IOException;
 
@@ -11,12 +11,9 @@ public class ActivateAccount extends BaseScooter {
         this.url = this.baseUrl + "identity-service/accounts/activate/";
     }
 
-    public int run(String token) throws IOException {
-        Request request = new Request.Builder()
-                .url(url + token)
-                .build();
-        try (Response response = client.newCall(request).execute()) {
-            return response.code();
-        }
+    public int activateUserToken(String token) throws IOException {
+        RequestUtil requestUtil = new RequestUtil();
+        Request request = requestUtil.getRequest(url + token);
+        return requestUtil.getResponseCode(request);
     }
 }
