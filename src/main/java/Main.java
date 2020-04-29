@@ -61,10 +61,8 @@ public class Main {
 
         UserDataDto userDataDto = new UserDataDto("testforapi.b@mail.com","qwerty","Alex2","Bor2");
         SignUp signUp = new SignUp();
-        userDataDto.setId(signUp.getResponse(userDataDto,false));
-        System.out.println("Step 1");
-        //System.out.println(userDataDto.getEmail());
-        System.out.println(userDataDto.getId());
+
+
 
 
 

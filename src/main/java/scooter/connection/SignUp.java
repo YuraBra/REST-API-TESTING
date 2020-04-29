@@ -26,9 +26,9 @@ public class SignUp extends BaseScooter {
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
     // method for FTC TestForUSerData
-    private RequestBody createBody(UserDataDto userDataDto, boolean isRandEmail){
+    private RequestBody createBody(UserDataDto userDataDto){
         String json = "{" +
-                "\"email\":\"" + (isRandEmail? getRandomizedEmail(userDataDto.getEmail()): userDataDto.getEmail()) + "\"," +
+                "\"email\":\"" + userDataDto.getEmail() + "\"," +
                 "\"firstName\":\""+ userDataDto.getFirstName() +"\"," +
                 "\"lastName\":\"" + userDataDto.getLastName() + "\"," +
                 "\"password\":\""+ userDataDto.getPassword() + "\"" +
@@ -40,7 +40,7 @@ public class SignUp extends BaseScooter {
         return post(url, createBody(email, firstName, lastName, password, isRandEmail));
     }
     // method for FTC TestForUSerData
-    public String getResponse(UserDataDto userDataDto, boolean isRandEmail) throws IOException {
-        return post(url, createBody(userDataDto, isRandEmail));
+    public String getResponse(UserDataDto userDataDto) throws IOException {
+        return post(url, createBody(userDataDto));
     }
 }

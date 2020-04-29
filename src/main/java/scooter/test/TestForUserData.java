@@ -16,16 +16,15 @@ public class TestForUserData {
     public void createUser(){
         userDataDto = new UserDataDto("dp184taqc@gmail.com","qwerty","Engineer","QA");
     }
-
     @Test
     public void setUpUser(){
         SignUp signUp = new SignUp();
 
         try{
-            activateToken = signUp.getResponse(userDataDto,isRandEmail);
+            activateToken = signUp.getResponse(userDataDto);
             System.out.println("Step 1");
             System.out.println(activateToken);
-        }catch (IOException e){ }
+        }catch (IOException e){ }                   // + Assert & Exception
     }
     @Test
     public void activateUser(){
@@ -34,7 +33,7 @@ public class TestForUserData {
             int actualCode = acc.run(activateToken.replace("\"", ""));
             System.out.println("Step 2");
             System.out.println(actualCode);
-        }catch (IOException e) { }
+        }catch (IOException e) { }                   // + Assert & Exception
     }
     @Test
     public void singInUser(){
