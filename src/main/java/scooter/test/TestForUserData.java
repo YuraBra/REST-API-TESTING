@@ -59,8 +59,6 @@ public class TestForUserData {
         return mail;
     }
 
-
-
     @Test
     public void getUserData() {
         //int actualStatus;
