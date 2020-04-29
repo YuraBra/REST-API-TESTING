@@ -1,6 +1,8 @@
 package scooter.test;
 
+import org.junit.Before;
 import org.junit.Test;
+import scooter.connection.ActivateAccount;
 import scooter.connection.SignUp;
 import scooter.connection.UserData;
 import scooter.data.User;
@@ -10,7 +12,29 @@ import java.io.IOException;
 public class TestForUserData {
     private int actualStatus;
     private boolean isRandEmail = true;
-    String userID;
+    User user;
+
+    @Before
+    public void setUp(){
+        user = new User("dp184taqc@gmail.com","qwerty","Engineer","QA");
+        SignUp signUp = new SignUp();
+        try{
+            user.setId(signUp.getResponse(user,isRandEmail));
+            System.out.println("Step 1");
+            System.out.println(user.getId());
+        }catch (IOException e){
+
+        }
+
+        ActivateAccount acc = new ActivateAccount();
+        try{
+            int actualCode = acc.run(user.getId().replace("\"", ""));
+            System.out.println("Step 2");
+            System.out.println(actualCode);
+        }catch (IOException e) {
+
+        }
+    }
 
     @Test
     public void testForGetUserData(){
@@ -21,21 +45,9 @@ public class TestForUserData {
         // получить его ID
         // админ запрос на его данніе
 
-        //User user = new User();
-        User user = new User("dp184taqc@gmail.com","qwerty","Engineer","QA");
-        //user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
-
-        SignUp signUp = new SignUp();
-        try{
-            userID = signUp.getResponse(user,isRandEmail);
-            // user.setID(userID) = signUp.getResponse(user,isRandEmail);
-        }catch (IOException e){
-
-        }
-
-        UserData userData = new UserData(userID);// (user.getID)
+        UserData userData = new UserData(user.getId());// (user.getID)
         try {
-            actualStatus = userData.run();
+            System.out.println(actualStatus = userData.run());
         } catch (IOException e) {
 
         }

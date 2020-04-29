@@ -25,12 +25,22 @@ public class SignUp extends BaseScooter {
                 "}";
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
+    // method for FTC TestForUSerData
+    private RequestBody createBody(User user, boolean isRandEmail){
+        String json = "{" +
+                "\"email\":\"" + (isRandEmail? getRandomizedEmail(user.getEmail()): user.getEmail()) + "\"," +
+                "\"firstName\":\""+ user.getFirstName() +"\"," +
+                "\"lastName\":\"" + user.getLastName() + "\"," +
+                "\"password\":\""+ user.getPassword() + "\"" +
+                "}";
+        return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
+    }
 
     public String getResponse(String email, String firstName, String lastName, String password, boolean isRandEmail) throws IOException {
         return post(url, createBody(email, firstName, lastName, password, isRandEmail));
     }
-
+    // method for FTC TestForUSerData
     public String getResponse(User user, boolean isRandEmail) throws IOException {
-        return post(url, createBody(user.getEmail(), user.getFirstName(), user.getLastName(), user.getPassword(), isRandEmail));
+        return post(url, createBody(user, isRandEmail));
     }
 }

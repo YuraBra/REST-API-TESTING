@@ -53,11 +53,11 @@ public class Main {
 
         Parsing parsing = new Parsing(new ListTechPortObjects(), response);
         ListTechPortObjects techportObjects = (ListTechPortObjects) parsing.parseDataFromJson();
-        System.out.println(techportObjects);*/
+        System.out.println(techportObjects);
         User user = new User();
         user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
         UserData userDate = new UserData(user);
-        System.out.println(userDate.run());
+        System.out.println(userDate.run());*/
 
     }
 }
