@@ -1,8 +1,6 @@
-import nasa.parsing.Parsing;
 import nasa.connection.Techport;
 import nasa.data.techportObject.ListTechPortObjects;
-import scooter.connection.UserData;
-import scooter.data.User;
+import nasa.parsing.Parsing;
 
 import java.io.IOException;
 
@@ -48,13 +46,13 @@ public class Main {
        // APODObject object2 = (APODObject) parsing1.parseDataFromJson();
       //  System.out.println(object2);
 
-        /*Techport techport = new Techport();
+        /*Techport techport = new Techport("17760");
         String response = techport.run();
 
         Parsing parsing = new Parsing(new ListTechPortObjects(), response);
         ListTechPortObjects techportObjects = (ListTechPortObjects) parsing.parseDataFromJson();
         System.out.println(techportObjects);
-        User user = new User();
+        UserDataDto user = new UserDataDto();
         user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
         UserData userDate = new UserData(user);
         System.out.println(userDate.run());*/

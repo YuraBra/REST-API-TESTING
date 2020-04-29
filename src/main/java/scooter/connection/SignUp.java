@@ -2,7 +2,7 @@ package scooter.connection;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import scooter.data.User;
+import scooter.data.UserDataDto;
 
 import java.io.IOException;
 
@@ -26,12 +26,12 @@ public class SignUp extends BaseScooter {
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
     // method for FTC TestForUSerData
-    private RequestBody createBody(User user, boolean isRandEmail){
+    private RequestBody createBody(UserDataDto userDataDto, boolean isRandEmail){
         String json = "{" +
-                "\"email\":\"" + (isRandEmail? getRandomizedEmail(user.getEmail()): user.getEmail()) + "\"," +
-                "\"firstName\":\""+ user.getFirstName() +"\"," +
-                "\"lastName\":\"" + user.getLastName() + "\"," +
-                "\"password\":\""+ user.getPassword() + "\"" +
+                "\"email\":\"" + (isRandEmail? getRandomizedEmail(userDataDto.getEmail()): userDataDto.getEmail()) + "\"," +
+                "\"firstName\":\""+ userDataDto.getFirstName() +"\"," +
+                "\"lastName\":\"" + userDataDto.getLastName() + "\"," +
+                "\"password\":\""+ userDataDto.getPassword() + "\"" +
                 "}";
         return  RequestBody.create(json, MediaType.parse("application/json; charset=utf-8"));
     }
@@ -40,7 +40,7 @@ public class SignUp extends BaseScooter {
         return post(url, createBody(email, firstName, lastName, password, isRandEmail));
     }
     // method for FTC TestForUSerData
-    public String getResponse(User user, boolean isRandEmail) throws IOException {
-        return post(url, createBody(user, isRandEmail));
+    public String getResponse(UserDataDto userDataDto, boolean isRandEmail) throws IOException {
+        return post(url, createBody(userDataDto, isRandEmail));
     }
 }

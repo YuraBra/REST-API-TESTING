@@ -3,7 +3,6 @@ package scooter.connection;
 import okhttp3.Request;
 import okhttp3.Response;
 import scooter.data.Data;
-import scooter.data.User;
 
 import java.io.IOException;
 
