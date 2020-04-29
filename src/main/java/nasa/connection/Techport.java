@@ -1,5 +1,6 @@
 package nasa.connection;
 
+
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 
@@ -10,9 +11,6 @@ public class Techport extends BaseNasa {
     private String baseTechportURL;
     private  String techportURL;
 
-    public Techport(){
-        baseTechportURL = baseUrl + "techport/api/projects/17792";
-    }
     public Techport(String id){
         baseTechportURL = baseUrl + "techport/api/projects/" + id;
     }
