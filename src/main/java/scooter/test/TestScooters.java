@@ -3,6 +3,7 @@ package scooter.test;
 import org.junit.Assert;
 import org.junit.Test;
 import scooter.connection.ScootersService;
+import scooter.data.Scooter;
 import scooter.data.ScooterDto;
 
 import java.io.IOException;
@@ -34,7 +35,7 @@ public class TestScooters {
     @Test
     public void testDeleteScooter() throws IOException {
         String randomScooterId = scootersService.getRandomActiveScooterId();
-//        scootersService.deleteScooterById(randomScooterId);
+        scootersService.deleteScooterById(randomScooterId);
         Assert.assertEquals("Unexpected status code of response", expectedDeleteStatusCode, scootersService.getRequestUtil().getResponseCode());
 
         String statusOfDeletedScooter = Arrays.stream(scootersService.getAllScooters()).
@@ -46,11 +47,24 @@ public class TestScooters {
     }
 
     @Test
-    public void testAddedScooter() throws IOException {
+    public void testGetStatusScooter() throws IOException {
         String randomScooterId = scootersService.getRandomActiveScooterId();
         String scooterStatusByIdAsUser = scootersService.getScooterStatusById(randomScooterId, USER_TOKEN);
         String scooterStatusByIdAsAdmin = scootersService.getScooterStatusById(randomScooterId, ADMIN_TOKEN);
         Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsUser);
+    }
+
+    @Test
+    public void testAddedScooter() throws IOException {
+        ScooterDto[] allScooters = scootersService.getAllScooters();
+        Scooter newScooter = new Scooter("Oxelo Freestyle", "123456987");
+        String newScooterId = scootersService.addScooter(newScooter);
+        Assert.assertFalse("The previous list already contains a new scooter. ", Arrays.stream(allScooters)
+                .anyMatch(s -> s.getId().contains(newScooterId)));
+        ScooterDto[] newScootersList = scootersService.getAllScooters();
+        Assert.assertTrue("List of scooters didn't contains added scooter", Arrays.stream(newScootersList)
+                .anyMatch(s -> newScooterId.contains(s.getId())));
+        System.out.println("Scooter successfully added");
     }
 
 }

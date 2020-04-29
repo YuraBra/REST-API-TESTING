@@ -41,6 +41,14 @@ public class RequestUtil {
                 .build();
     }
 
+    public <T> Request postRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
+                .post(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
+
     public <T> Request putRequest(String httpUrl, T payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
