@@ -1,6 +1,8 @@
 import nasa.connection.Techport;
 import nasa.data.techportObject.ListTechPortObjects;
 import nasa.parsing.Parsing;
+import scooter.connection.SignUp;
+import scooter.data.UserDataDto;
 
 import java.io.IOException;
 
@@ -56,6 +58,15 @@ public class Main {
         user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
         UserData userDate = new UserData(user);
         System.out.println(userDate.run());*/
+
+        UserDataDto userDataDto = new UserDataDto("testforapi.b@mail.com","qwerty","Alex2","Bor2");
+        SignUp signUp = new SignUp();
+        userDataDto.setId(signUp.getResponse(userDataDto,false));
+        System.out.println("Step 1");
+        //System.out.println(userDataDto.getEmail());
+        System.out.println(userDataDto.getId());
+
+
 
     }
 }

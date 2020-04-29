@@ -21,6 +21,7 @@ public class TestForUserData {
         try{
             userDataDto.setId(signUp.getResponse(userDataDto,isRandEmail));
             System.out.println("Step 1");
+            //System.out.println(userDataDto.getEmail());
             System.out.println(userDataDto.getId());
         }catch (IOException e){
 
