@@ -8,6 +8,7 @@ import scooter.test.TestScooters;
 @RunWith(Categories.class)
 @Suite.SuiteClasses({
         TestScooters.class
+
 })
 public class RunScooterTests {
 }

@@ -61,6 +61,16 @@ public class RequestUtil {
                 .build();
     }
 
+    public <T> Request deleteRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        String s = createJsonFromObject(payload);
+        System.out.println("!!!!!! " + createRequestBody(s));
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
+                .delete(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
+
     public <T> Request deleteRequest(String httpUrl, String token) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
@@ -72,6 +82,7 @@ public class RequestUtil {
     public String getResponse(Request request) throws IOException {
         Response response = requestClient.newCall(request).execute();
         responseCode = response.code();
+        System.out.println(response);
         return response.body().string();
     }
 

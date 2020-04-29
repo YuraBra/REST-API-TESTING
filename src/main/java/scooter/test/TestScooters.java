@@ -50,7 +50,7 @@ public class TestScooters {
         String randomScooterId = scootersService.getRandomActiveScooterId();
         String scooterStatusByIdAsUser = scootersService.getScooterStatusById(randomScooterId, USER_TOKEN);
         String scooterStatusByIdAsAdmin = scootersService.getScooterStatusById(randomScooterId, ADMIN_TOKEN);
-        Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsUser);
+        Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsAdmin);
     }
 
 }

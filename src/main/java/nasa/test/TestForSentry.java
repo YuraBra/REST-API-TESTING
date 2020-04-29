@@ -9,7 +9,7 @@ import org.junit.Test;
 import java.io.IOException;
 
 public class TestForSentry {
-    private String expected = "nasa/JPL Sentry Data API";
+    private String expected = "NASA/JPL Sentry Data API";
 
     @Test
     public void testCME() throws IOException {

@@ -12,7 +12,7 @@ public class JsonUtil {
     private static final MediaType JSON = MediaType.get("application/json; charset=utf-8");
 
     public static RequestBody createRequestBody(String json) {
-        return RequestBody.create(JSON, json);
+        return RequestBody.create(json, JSON);
     }
 
     public static String createJsonFromObject(Object o) throws JsonProcessingException {
