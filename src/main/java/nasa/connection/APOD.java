@@ -4,6 +4,7 @@ import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class APOD extends BaseNasa {
     private String BaseAPODUrl;
@@ -25,18 +26,17 @@ public class APOD extends BaseNasa {
         Request request = new Request.Builder()
                 .url(url)
                 .build();
-
         return getResponse(request);
     }
 
     private String createUrl(){
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(BaseAPODUrl).newBuilder();
+        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(BaseAPODUrl)).newBuilder();
         urlBuilder.addQueryParameter("api_key", apiKey);
         return urlBuilder.build().toString();
     }
 
     private String createUrl(String date){
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(BaseAPODUrl).newBuilder();
+        HttpUrl.Builder urlBuilder = Objects.requireNonNull(HttpUrl.parse(BaseAPODUrl)).newBuilder();
         urlBuilder.addQueryParameter("api_key", apiKey);
         urlBuilder.addQueryParameter("date", date);
         return urlBuilder.build().toString();
