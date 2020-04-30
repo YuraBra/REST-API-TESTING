@@ -37,7 +37,7 @@ public class TestForAPOD {
             String response = apod.run(data);
             APODObject object =(APODObject) new Parsing(new APODObject(), response).parseDataFromJson();
             Assert.assertEquals(object, apodObject);
-        }catch (Exception e){
+        }catch (IOException e){
             Assert.fail(e.getMessage());
         }
     }

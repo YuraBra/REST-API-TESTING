@@ -3,13 +3,12 @@ package scooter.connection;
 import okhttp3.Request;
 import scooter.data.CardDto;
 import scooter.data.CardObject;
-import scooter.data.TestDto;
 import scooter.data.UserCardDto;
 import scooter.util.RequestUtil;
 
 import java.io.IOException;
 
-import static scooter.data.Data.USER_TOKEN;
+import static scooter.data.Data.*;
 
 public class CardService extends BaseScooter {
     private String url;
@@ -25,11 +24,9 @@ public class CardService extends BaseScooter {
         return requestUtil.getResponse(request);
     }
 
-    public String deleteCard() throws IOException {
-        CardDto payload = new CardDto();
-        payload.setUserUUID("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
-        payload.setLastFour("4242");
-        Request request = requestUtil.deleteRequest(url, payload, USER_TOKEN);
-        return requestUtil.getResponse(request);
+    public UserCardDto deleteCard() throws IOException {
+        CardDto payload = new CardDto(USER_ID, LAST_FOUR);
+        Request request = requestUtil.deleteRequest(url, USER_TOKEN, payload);
+        return requestUtil.getResponseAs(UserCardDto.class, request);
     }
 }

@@ -31,12 +31,16 @@ public class TestForEarth {
 
     @Test
     @Parameters(method = "inputDataPositive")
-    public void testEarthImagery(Float lat, Float lon) throws IOException {
-        Earth earth = new Earth();
-        String response = earth.run(lat, lon);
-        Parsing pars = new Parsing(EarthObject.class, response);
-        EarthObject object = (EarthObject) pars.parseDataFromJson();
-        String expected = "earth";
-        Assert.assertEquals("Bad nasa.connection", expected, object.getResource().getPlanet());
+    public void testEarthImagery(Float lat, Float lon) {
+        try{
+            Earth earth = new Earth();
+            String response = earth.run(lat, lon);
+            Parsing pars = new Parsing(EarthObject.class, response);
+            EarthObject object = (EarthObject) pars.parseDataFromJson();
+            String expected = "earth";
+            Assert.assertEquals("Bad nasa.connection", expected, object.getResource().getPlanet());
+        }catch (IOException e){
+            Assert.fail(e.getMessage());
+        }
     }
 }
