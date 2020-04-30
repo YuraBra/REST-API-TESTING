@@ -6,7 +6,7 @@ import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import scooter.connection.AuthorizedUser;
+import scooter.services.AuthorizedUser;
 import scooter.data.Data;
 import scooter.data.User;
 import java.io.IOException;
@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForAuthorizedUser {
+public class TestForAuthorizedUser extends BaseTest{
     public int expectedBearerTokenLength = 499;
 
     public static Collection<Object[]> inputDataPositive(){

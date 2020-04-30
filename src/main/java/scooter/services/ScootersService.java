@@ -1,4 +1,4 @@
-package scooter.connection;
+package scooter.services;
 
 import lombok.Getter;
 import okhttp3.Request;
@@ -52,7 +52,7 @@ public class ScootersService extends BaseScooter {
 
     public String getRandomActiveScooterId() throws IOException {
         List<ScooterDto> allScooters = Arrays.stream(getAllScooters())
-                .filter(s -> !s.getStatus().equals(DECOMMISSIONED))
+                .filter(s -> s.getStatus().equals(INSPECT))
                 .collect(Collectors.toList());
         return allScooters.get(new Random().nextInt(allScooters.size())).getId();
     }

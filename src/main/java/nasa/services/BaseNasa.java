@@ -1,4 +1,4 @@
-package nasa.connection;
+package nasa.services;
 
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

@@ -4,7 +4,7 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.*;
 import org.junit.runner.RunWith;
-import scooter.connection.ScootersService;
+import scooter.services.ScootersService;
 import scooter.data.ScooterDto;
 import scooter.util.ScooterType;
 
@@ -14,7 +14,7 @@ import static scooter.data.Data.*;
 import static scooter.util.ScooterType.*;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestScooterStatus {
+public class TestScooterStatus extends BaseTest{
 
     private ScootersService scootersService = new ScootersService();
     private String newScooterId;
@@ -28,9 +28,6 @@ public class TestScooterStatus {
     public void deleteScooter () throws IOException {
         scootersService.getNewStatusScooterById(newScooterId, inspect);
         scootersService.deleteScooterById(newScooterId);
-        ScooterDto scooterStatus = scootersService.getScooterById(newScooterId, ADMIN_TOKEN);
-        String scooter = scooterStatus.getStatus();
-        System.out.println("scooter Status is:" + scooter);
     }
 
     public static Object[][] testCheckChangeScooterStatus() {

@@ -2,7 +2,7 @@ package scooter.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.ScootersService;
+import scooter.services.ScootersService;
 import scooter.data.Scooter;
 import scooter.data.ScooterDto;
 
@@ -12,7 +12,7 @@ import java.util.Arrays;
 import static scooter.data.Data.ADMIN_TOKEN;
 import static scooter.data.Data.USER_TOKEN;
 
-public class TestScooters {
+public class TestScooters extends BaseTest{
     private int expectedStatusCode = 200;
     private int expectedDeleteStatusCode = 204;
     private ScootersService scootersService = new ScootersService();
@@ -51,7 +51,7 @@ public class TestScooters {
         String randomScooterId = scootersService.getRandomActiveScooterId();
         String scooterStatusByIdAsUser = scootersService.getScooterStatusById(randomScooterId, USER_TOKEN);
         String scooterStatusByIdAsAdmin = scootersService.getScooterStatusById(randomScooterId, ADMIN_TOKEN);
-        Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsUser);
+        Assert.assertEquals(scooterStatusByIdAsAdmin, scooterStatusByIdAsUser);
     }
 
     @Test

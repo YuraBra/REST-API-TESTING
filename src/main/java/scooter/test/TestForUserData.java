@@ -5,8 +5,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
-import scooter.connection.UserData;
 import scooter.data.Data;
+import scooter.services.UserData;
 import scooter.util.SubStringSearcher;
 import scooter.util.TokenDecoder;
 
@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(value = Parameterized.class)
-public class TestForUserData {
+public class TestForUserData extends BaseTest{
 
     private String token;
     private String expectedMail;

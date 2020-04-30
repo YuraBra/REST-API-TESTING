@@ -1,19 +1,20 @@
 package nasa.test;
 
 import nasa.parsing.Parsing;
-import nasa.connection.Techport;
 import nasa.data.techportObject.ListTechPortObjects;
+import nasa.services.Techport;
 import nasa.testData.TechPortData;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 import java.util.*;
 
 @RunWith(value = Parameterized.class)
-public class TestForTechport {
+public class TestForTechport extends BaseTest {
     private String id;
     private String expectedTitle;
 
@@ -39,6 +40,6 @@ public class TestForTechport {
         String response = techport.run();
         Parsing parsing = new Parsing(new ListTechPortObjects(), response);
         ListTechPortObjects techportObjects = (ListTechPortObjects) parsing.parseDataFromJson();
-        Assert.assertEquals(expectedTitle,techportObjects.getProject().getTitle());
+        Assert.assertEquals(expectedTitle, techportObjects.getProject().getTitle());
     }
 }

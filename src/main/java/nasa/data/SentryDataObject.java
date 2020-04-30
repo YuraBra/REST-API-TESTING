@@ -3,6 +3,7 @@ package nasa.data;
 import lombok.Getter;
 
 @Getter
+
 public class SentryDataObject {
     private String ip;
     private String range;

@@ -2,19 +2,20 @@ package nasa.test;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import nasa.connection.Earth;
+import nasa.services.Earth;
 import nasa.data.earthObject.EarthObject;
 import nasa.parsing.Parsing;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForEarth {
+public class TestForEarth extends BaseTest {
 
     public static Collection<Object[]> inputDataPositive() {
         return Arrays.asList(new Object[][]{
@@ -31,12 +32,16 @@ public class TestForEarth {
 
     @Test
     @Parameters(method = "inputDataPositive")
-    public void testEarthImagery(Float lat, Float lon) throws IOException {
-        Earth earth = new Earth();
-        String response = earth.run(lat, lon);
-        Parsing pars = new Parsing(EarthObject.class, response);
-        EarthObject object = (EarthObject) pars.parseDataFromJson();
-        String expected = "earth";
-        Assert.assertEquals("Bad nasa.connection", expected, object.getResource().getPlanet());
+    public void testEarthImagery(Float lat, Float lon) {
+        try{
+            Earth earth = new Earth();
+            String response = earth.run(lat, lon);
+            Parsing pars = new Parsing(EarthObject.class, response);
+            EarthObject object = (EarthObject) pars.parseDataFromJson();
+            String expected = "earth";
+            Assert.assertEquals("Bad nasa.connection", expected, object.getResource().getPlanet());
+        }catch (IOException e){
+            Assert.fail(e.getMessage());
+        }
     }
 }
