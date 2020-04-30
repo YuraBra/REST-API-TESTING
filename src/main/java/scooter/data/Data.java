@@ -12,12 +12,16 @@ public final class Data {
             "NcckdlRAu016tJAiz6IL-ybwjJE2nLmZsHXzjErfYc4WfpXYsSkLwVu09-wLPOE" +
             "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
-    public static final String SCOOTER_ID = "f1062bdd-c543-4073-9336-c3e06b1101b3";
     public static final String EMAIL = "dp184test@gmail.com";
     public static final String PASSWORD = "qwerty";
+    public static final String FIRST_NAME = "Engineer";
+    public static final String LAST_NAME = "QA";
     public static final String CARD_NUMBER = "4242424242424242";
     public static final int CVC = 123;
     public static final String YEAR_MONTH = "2020-12";
+
+    public static final String EMAIL_2 = "dp184test2@gmail.com";
+    public static final String PASSWORD_2 = "qwerty2";
     public static final String EMPTY_JSON_OBJ = "{}";
     public static final String TEST_MODEL_NAME = "dp184";
     public static final String TEST_SERIAL_NUMBER = "2020";

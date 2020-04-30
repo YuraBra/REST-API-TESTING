@@ -2,14 +2,10 @@ package scooter.util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.Getter;
-import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import java.io.IOException;
-
-import static scooter.data.Data.ADMIN_TOKEN;
 import static scooter.util.JsonUtil.*;
 
 public class RequestUtil {
@@ -79,13 +75,25 @@ public class RequestUtil {
     }
 
     public String getResponse(Request request) throws IOException {
-        Response response = requestClient.newCall(request).execute();
-        responseCode = response.code();
-        return response.body().string();
+        try(Response response = requestClient.newCall(request).execute()){
+            responseCode = response.code();
+            return response.body().string();
+        }
+    }
+
+    public int getResponseCode(Request request) throws IOException {
+        try(Response response = requestClient.newCall(request).execute()){
+            return response.code();
+        }
     }
 
     public <T> T getResponseAs(Class<T> tClass, Request request) throws IOException {
         return createObjectFromJson(getResponse(request), tClass);
     }
 
+    public String getAuthorizationToken(Request request) throws IOException {
+        try(Response response = requestClient.newCall(request).execute()){
+            return response.header("Authorization");
+        }
+    }
 }

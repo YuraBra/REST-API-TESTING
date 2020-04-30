@@ -1,9 +1,8 @@
 package scooter.connection;
 
 import lombok.Getter;
-import nasa.parsing.Parsing;
 import okhttp3.Request;
-import okhttp3.Response;
+import scooter.data.Scooter;
 import scooter.data.ScooterDto;
 import scooter.util.RequestUtil;
 import scooter.util.ScooterType;
@@ -12,9 +11,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import static scooter.data.Data.ADMIN_TOKEN;
 import static scooter.data.Data.*;
 
 @Getter
@@ -80,6 +79,11 @@ public class ScootersService extends BaseScooter {
         Request request = requestUtil.putRequest(url + "/status/" + scooterId + "/" + scooterType,
                 EMPTY_JSON_OBJ,
                 ADMIN_TOKEN);
+        return requestUtil.getResponse(request);
+    }
+
+    public String addScooter(Scooter scooter) throws IOException {
+        Request request = requestUtil.postRequest(url, scooter, ADMIN_TOKEN);
         return requestUtil.getResponse(request);
     }
 }
