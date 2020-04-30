@@ -3,6 +3,7 @@ package scooter.connection;
 import okhttp3.Request;
 import okhttp3.Response;
 import scooter.data.Data;
+import scooter.util.RequestUtil;
 
 import java.io.IOException;
 
@@ -16,13 +17,9 @@ public class UserData extends BaseScooter{
 
 
     public String run() throws IOException {
-        Request request = new Request.Builder()
-                .header("Authorization", "Bearer " + Data.ADMIN_TOKEN)
-                .url(url)
-                .build();
-        try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
+        RequestUtil requestUtil = new RequestUtil();
+        Request request = requestUtil.getRequest(url, Data.ADMIN_TOKEN);
+        return requestUtil.getResponse(request);
 
-        }
     }
 }
