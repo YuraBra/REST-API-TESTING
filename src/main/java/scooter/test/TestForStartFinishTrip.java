@@ -25,7 +25,7 @@ public class TestForStartFinishTrip {
         trip.startTrip(scooterIdFree);
         String statusScooterAfterStart = scootersService.getScooterStatusById(scooterIdFree, ADMIN_TOKEN);
         String expected = "\"IN_USE\"";
-        Assert.assertEquals("", expected, statusScooterAfterStart);
+        Assert.assertEquals("The incorrect data were used", expected, statusScooterAfterStart);
     }
 
     @Test
@@ -40,6 +40,6 @@ public class TestForStartFinishTrip {
         trip.finishTrip(scooterIdFree);
         String statusScooterAfterFinish = scootersService.getScooterStatusById(scooterIdFree, ADMIN_TOKEN);
         String expected = "\"FREE\"";
-        Assert.assertEquals("", expected, statusScooterAfterFinish);
+        Assert.assertEquals("The incorrect data were used", expected, statusScooterAfterFinish);
     }
 }

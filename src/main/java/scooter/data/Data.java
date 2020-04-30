@@ -24,7 +24,18 @@ public final class Data {
 
     public static final String EMAIL_2 = "dp184test2@gmail.com";
     public static final String PASSWORD_2 = "qwerty2";
+    public static final String EMPTY_JSON_OBJ = "{}";
+    public static final String TEST_MODEL_NAME = "dp184";
+    public static final String TEST_SERIAL_NUMBER = "2020";
     public static final String USER_TOKEN = "eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiJjYjYyNzZiMC01NzQ2LTQ4MWMtYTYwNC1iMjhmNGE0N2EyMTkiLCJyb2xlIjoiW1wiVVNFUlwiXSIsImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU5NTUwNjE3OX0.TRzbOu7F9zRUE3KdDMgP4Jk0FQilCPpk6CZv9x4vxQm0bqdHbvfod0IbGPziVF13R7wu_EMp8BSzUcdTeEmfg2HlbUu8bzCn1nk9IKfawmAdc_N8lh-lk0VZJopXIJrFtN_h3L530FB0hcLnsVUWM5UptE8nX4RqNYeGtYu8GPgAzNpW-qkPZp7na9Xl5RcZYmPNByO3jkYzSEWtAnMIp2UPV0xVUiOQTjGTrqAmJHIDw1M6IT7CSY-mj0MbN2FOzYW9Vqs1yXld1RreN06eNZfYfICwEYTph_0ewiqo-VkAfR40QmaaCGqdAkh4BNYpt_LeUY10w3ferFTUM29wkQ";
     public static final String SCOOTER_ID = "fffee4dc-73a6-4911-945f-e1658762fe72";
 
+    public final static String SYMBOL = "\"";
+    public final static String EMPTY_STRING = "";
+
+    //Status
+    public static final String INSPECT = "ON_INSPECTION";
+    public static final String RETRIEVE = "ON_RETRIEVE";
+    public static final String ACQUIRE = "IN_USE";
+    public static final String FREE = "FREE";
 }
