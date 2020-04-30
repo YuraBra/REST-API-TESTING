@@ -4,11 +4,11 @@ import okhttp3.Request;
 import scooter.data.User;
 import scooter.util.RequestUtil;
 import java.io.IOException;
+import static scooter.data.Data.SYMBOL;
+import static scooter.data.Data.EMPTY_STRING;
 
 public class NewUser extends BaseScooter {
     private String url;
-    private final static String SYMBOL = "\"";
-    private final static String EMPTY_STRING = "";
 
     public NewUser() {
         this.url = this.baseUrl + "identity-service/accounts/sign-up";
