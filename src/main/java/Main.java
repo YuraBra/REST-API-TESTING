@@ -1,9 +1,3 @@
-import nasa.parsing.Parsing;
-import nasa.connection.Techport;
-import nasa.data.techportObject.ListTechPortObjects;
-import scooter.connection.UserData;
-import scooter.data.User;
-
 import java.io.IOException;
 
 public class Main {

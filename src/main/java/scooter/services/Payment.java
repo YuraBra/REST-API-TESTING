@@ -1,6 +1,7 @@
-package scooter.connection;
+package scooter.services;
 
 import okhttp3.Request;
+import scooter.services.BaseScooter;
 import scooter.util.RequestUtil;
 
 import java.io.IOException;
@@ -14,7 +15,7 @@ public class Payment extends BaseScooter {
 
     public Payment(String userId) {
         this.paymentUrl = this.baseUrl + "payment-service/payments/" + userId
-        + "/user-solvency";
+                + "/user-solvency";
         this.requestUtil = new RequestUtil();
     }
 

@@ -1,4 +1,4 @@
-package scooter.connection;
+package scooter.services;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
