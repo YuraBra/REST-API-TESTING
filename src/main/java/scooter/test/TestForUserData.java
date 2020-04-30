@@ -29,8 +29,8 @@ public class TestForUserData {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {Data.userTokenUserDataTest_1, Data.emailUserDataTest_1},
-                {Data.userTokenUserDataTest_2, Data.emailUserDataTest_2}
+                {Data.USER_TOKEN_USER_DATA_TEST_1, Data.EMAIL_USER_DATA_TEST_1},
+                {Data.USER_TOKEN_USER_DATA_TEST_2, Data.EMAIL_USER_DATA_TEST_2}
         });
     }
 
@@ -42,7 +42,7 @@ public class TestForUserData {
         UserData userData = new UserData(userID);
         try {
             userDataJson = userData.run();
-            String actualMailFromJSON = SubStringSearcher.getSubString(userDataJson, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
+            String actualMailFromJSON = SubStringSearcher.getSubString(userDataJson, Data.FIRST_SUB_STR_FOR_USER_MAIL,Data.SECOND_SUB_STR_FOR_USER_MAIL);
             Assert.assertEquals(expectedMail, actualMailFromJSON);
         } catch (IOException e) {
             Assert.fail();
