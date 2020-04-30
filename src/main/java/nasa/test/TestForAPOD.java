@@ -28,7 +28,7 @@ public class TestForAPOD {
 
     @Test
     @Parameters(method = "inputDataPositive")
-    public void testApplicationForEveryday(String data, APODObject apodObject) throws IOException {
+    public void testApplicationForEveryday(String data, APODObject apodObject) {
         APOD apod = new APOD();
         try{
             if(data.equals(EMPTY_STRING)){

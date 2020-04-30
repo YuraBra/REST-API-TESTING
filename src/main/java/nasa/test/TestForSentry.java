@@ -12,7 +12,7 @@ public class TestForSentry {
     private String expected = "NASA/JPL Sentry Data API";
 
     @Test
-    public void testCME() throws IOException {
+    public void testForSentry() throws IOException {
         Sentry sentry = new Sentry();
         String response = sentry.run();
         Parsing parsing =  new Parsing(new SentryObject(), response);

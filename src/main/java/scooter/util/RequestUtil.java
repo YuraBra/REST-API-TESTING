@@ -5,9 +5,7 @@ import lombok.Getter;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 import java.io.IOException;
-
 import static scooter.util.JsonUtil.*;
 
 public class RequestUtil {
@@ -53,6 +51,13 @@ public class RequestUtil {
                 .put(createRequestBody(createJsonFromObject(payload)))
                 .build();
     }
+    public <T> Request putRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
+                .put(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
 
     public <T> Request deleteRequest(String httpUrl, T payload) throws JsonProcessingException {
         return new Request.Builder()
@@ -61,9 +66,7 @@ public class RequestUtil {
                 .build();
     }
 
-    public <T> Request deleteRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
-        String s = createJsonFromObject(payload);
-        System.out.println("!!!!!! " + createRequestBody(s));
+    public <T> Request deleteRequest(String httpUrl, String token, String payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
                 .addHeader("Authorization", "Bearer " + token)
@@ -71,23 +74,26 @@ public class RequestUtil {
                 .build();
     }
 
-    public <T> Request deleteRequest(String httpUrl, String token) throws JsonProcessingException {
-        return new Request.Builder()
-                .url(httpUrl)
-                .addHeader("Authorization", "Bearer " + token)
-                .delete()
-                .build();
+    public String getResponse(Request request) throws IOException {
+        try(Response response = requestClient.newCall(request).execute()){
+            responseCode = response.code();
+            return response.body().string();
+        }
     }
 
-    public String getResponse(Request request) throws IOException {
-        Response response = requestClient.newCall(request).execute();
-        responseCode = response.code();
-        System.out.println(response);
-        return response.body().string();
+    public int getResponseCode(Request request) throws IOException {
+        try(Response response = requestClient.newCall(request).execute()){
+            return response.code();
+        }
     }
 
     public <T> T getResponseAs(Class<T> tClass, Request request) throws IOException {
         return createObjectFromJson(getResponse(request), tClass);
     }
 
+    public String getAuthorizationToken(Request request) throws IOException {
+        try(Response response = requestClient.newCall(request).execute()){
+            return response.header("Authorization");
+        }
+    }
 }
