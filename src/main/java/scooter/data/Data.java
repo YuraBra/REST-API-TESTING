@@ -20,7 +20,26 @@ public final class Data {
     public static final String passwordUserDataTest_1 = "qwerty";
     public static final String firstNameUserDataTest_1 = "Alex9";
     public static final String lastNameUserDataTest_1 = "Bor9";
-    //public static final String userTokenUserDataTest_1="";
+
+    public static final String userTokenUserDataTest_1="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI" +
+            "0NWJjYWEzMi1iYmMzLTQwN2MtYWQwMC0xZmFkOTE2NmExZjYiLCJyb2xlIjoiW1wiVVNFUlwiXSI" +
+            "sImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU5NTk5Njc3OX0.AOGHgcR0QJKPSh-10rDiu7IRXmtNuV" +
+            "JagqYgrX44vf0IXfGC-QxRL1rioP3AMxdfsIqXSEPoMB8Y4TCZwALX_LnQi_Zb5TGNJTmH804mgbl7" +
+            "rTDTruUSV01rHNknYEEol5TY8ByUwvDwxEaToQat5mOfGRPXM7CgNYPhuVo_g2nM2tLVIKkm5kI6nBDk5" +
+            "5F1hbszI33XLm24bpLBF1MAllltsQFy0K4SNwYqMVoscvngSr_Et2SqQ3UgabymNgPCn3BfKl78pQhtAuJo" +
+            "R5LV192Y2aO9Ptcyd36BIfbLiZNx0N1SIsgVNpsS3DmAcTB8aGc9LsiCpkLDL5r7t8MdEA";
+
+    public static final String emailUserDataTest_2 = "testforapi.f@mail.com";
+    public static final String passwordUserDataTest_2 = "qwerty";
+    public static final String firstNameUserDataTest_2 = "Alex5";
+    public static final String lastNameUserDataTest_2= "Bor5";
+
+    public static final String userTokenUserDataTest_2="";
+
+
+
+
+
 
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
     public static final String SCOOTER_ID = "f1062bdd-c543-4073-9336-c3e06b1101b3";
