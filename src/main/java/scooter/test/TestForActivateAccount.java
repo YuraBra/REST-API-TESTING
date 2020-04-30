@@ -2,8 +2,8 @@ package scooter.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.ActivateAccount;
-import scooter.connection.NewUser;
+import scooter.services.ActivateAccount;
+import scooter.services.NewUser;
 import scooter.data.Data;
 import scooter.data.User;
 import java.io.IOException;

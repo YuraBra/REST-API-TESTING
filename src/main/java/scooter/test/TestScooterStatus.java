@@ -4,7 +4,7 @@ import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
 import org.junit.*;
 import org.junit.runner.RunWith;
-import scooter.connection.ScootersService;
+import scooter.services.ScootersService;
 import scooter.data.ScooterDto;
 import scooter.util.ScooterType;
 

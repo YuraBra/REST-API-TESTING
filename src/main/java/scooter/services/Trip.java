@@ -1,4 +1,4 @@
-package scooter.connection;
+package scooter.services;
 
 import lombok.Getter;
 import okhttp3.Request;

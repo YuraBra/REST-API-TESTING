@@ -6,7 +6,7 @@ import junitparams.Parameters;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import scooter.connection.NewUser;
+import scooter.services.NewUser;
 import scooter.data.Data;
 import scooter.data.User;
 import java.io.IOException;

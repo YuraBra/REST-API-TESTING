@@ -2,7 +2,7 @@ package scooter.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.ScootersService;
+import scooter.services.ScootersService;
 import scooter.data.Scooter;
 import scooter.data.ScooterDto;
 

@@ -1,4 +1,4 @@
-package scooter.connection;
+package scooter.services;
 
 import okhttp3.Request;
 import okhttp3.Response;

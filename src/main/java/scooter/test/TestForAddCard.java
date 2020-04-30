@@ -3,10 +3,9 @@ package scooter.test;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import scooter.connection.AuthorizedUser;
-import scooter.connection.Card;
+import scooter.services.AuthorizedUser;
+import scooter.services.Card;
 import scooter.data.CardObject;
-import scooter.data.Data;
 import scooter.data.User;
 
 import java.io.IOException;
