@@ -6,7 +6,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-//@AllArgsConstructor
+@AllArgsConstructor
 public class User {
 
     private String id;

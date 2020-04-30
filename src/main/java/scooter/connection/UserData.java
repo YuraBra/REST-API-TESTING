@@ -16,7 +16,6 @@ public class UserData extends BaseScooter{
 
 
     public String run() throws IOException {
-        System.out.println(url);                                    // DELETE
         Request request = new Request.Builder()
                 .header("Authorization", "Bearer " + Data.ADMIN_TOKEN)
                 .url(url)

@@ -7,8 +7,6 @@ public class SubStringSearcher {
         int first = str.indexOf(firstSubStr);
         int second = str.indexOf(secondSubStr);
         String subStr = str.substring(first + firstSubStr.length(), second);
-        System.out.println("Step " + str);                                           //DELETE
-        System.out.println(subStr);                                             //DELETE
         return subStr;
     }
 }

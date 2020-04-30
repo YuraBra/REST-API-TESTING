@@ -37,17 +37,13 @@ public class TestForUserData {
     @Test
     public void getUserData() {
         String userDataJson;
-
-        String body = TokenDecoder.getBodyFromToken(token);            // Data.Token1;
+        String body = TokenDecoder.getBodyFromToken(token);
         String userID = SubStringSearcher.getSubString(body,Data.firstSubStrForUserID,Data.secondSubStrForUserID);
-
         UserData userData = new UserData(userID);
         try {
             userDataJson = userData.run();
-            System.out.println("Step 7");       // DELETE
-            System.out.println(userDataJson);   // DELETE
             String actualMailFromJSON = SubStringSearcher.getSubString(userDataJson, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
-            Assert.assertEquals(expectedMail, actualMailFromJSON);   // change "testforapi.i@mail.com"
+            Assert.assertEquals(expectedMail, actualMailFromJSON);
         } catch (IOException e) {
             Assert.fail();
         }
