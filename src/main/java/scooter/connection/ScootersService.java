@@ -40,8 +40,8 @@ public class ScootersService extends BaseScooter {
     }
 
     public String deleteScooterById(String scooterId) throws IOException {
-        Request request = requestUtil.deleteRequest(url + scooterId, ADMIN_TOKEN, "{}");
-        return requestUtil.getResponse(request).replace("\"", "");
+        Request request = requestUtil.deleteRequest(url + scooterId, ADMIN_TOKEN, EMPTY_JSON_OBJ);
+        return requestUtil.getResponse(request).replace(SYMBOL, EMPTY_STRING);
     }
 
     public String getRandomScooterID() throws IOException {
@@ -59,7 +59,7 @@ public class ScootersService extends BaseScooter {
 
     public String getScooterStatusById(String scooterId, String token) throws IOException {
         Request request = requestUtil.getRequest(url + "/status/" + scooterId, token);
-        return requestUtil.getResponse(request).replace("\"", "");
+        return requestUtil.getResponse(request).replace(SYMBOL, EMPTY_STRING);
     }
 
     public ScooterDto getScooterById(String scooterId, String token) throws IOException {
@@ -72,7 +72,7 @@ public class ScootersService extends BaseScooter {
         scooterPayload.setModelName(TEST_MODEL_NAME);
         scooterPayload.setSerialNumber(TEST_SERIAL_NUMBER);
         Request request = requestUtil.postRequest(url, scooterPayload, ADMIN_TOKEN);
-        return requestUtil.getResponse(request).replace("\"", "");
+        return requestUtil.getResponse(request).replace(SYMBOL, EMPTY_STRING);
     }
 
     public String getNewStatusScooterById(String scooterId, ScooterType scooterType) throws IOException {

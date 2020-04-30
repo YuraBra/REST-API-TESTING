@@ -22,7 +22,6 @@ public class TestScooterStatus {
     @Before
     public void createScooter () throws IOException {
         newScooterId = scootersService.getNewScooterById();
-        System.out.println("New scooter ID is:" + newScooterId);
     }
 
     @After
