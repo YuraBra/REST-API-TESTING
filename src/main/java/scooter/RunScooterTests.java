@@ -16,7 +16,7 @@ import scooter.test.TestScooters;
         TestForNewUser.class,
         TestForActivateAccount.class,
         TestForAuthorizedUser.class,
-        TestForUserSolvency.class
+        TestForUserSolvency.class,
         TestForAuthorizedUser.class,
         TestScooters.class,
         TestScooterStatus.class
