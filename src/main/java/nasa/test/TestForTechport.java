@@ -25,10 +25,10 @@ public class TestForTechport {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {TechPortData.id1, TechPortData.title1},
-                {TechPortData.id2, TechPortData.title2},
-                {TechPortData.id3, TechPortData.title3},
-                {TechPortData.id4, TechPortData.title4}
+                {TechPortData.ID1, TechPortData.TITLE1},
+                {TechPortData.ID2, TechPortData.TITLE2},
+                {TechPortData.ID3, TechPortData.TITLE3},
+                {TechPortData.ID4, TechPortData.TITLE4}
         });
     }
 
