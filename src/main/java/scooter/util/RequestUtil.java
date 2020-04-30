@@ -41,9 +41,24 @@ public class RequestUtil {
                 .build();
     }
 
+    public <T> Request postRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
+                .post(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
+
     public <T> Request putRequest(String httpUrl, T payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
+                .put(createRequestBody(createJsonFromObject(payload)))
+                .build();
+    }
+    public <T> Request putRequest(String httpUrl, T payload, String token) throws JsonProcessingException {
+        return new Request.Builder()
+                .url(httpUrl)
+                .addHeader("Authorization", "Bearer " + token)
                 .put(createRequestBody(createJsonFromObject(payload)))
                 .build();
     }
@@ -55,11 +70,11 @@ public class RequestUtil {
                 .build();
     }
 
-    public <T> Request deleteRequest(String httpUrl, String token) throws JsonProcessingException {
+    public <T> Request deleteRequest(String httpUrl, String token, String payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
                 .addHeader("Authorization", "Bearer " + token)
-                .delete()
+                .delete(createRequestBody(createJsonFromObject(payload)))
                 .build();
     }
 

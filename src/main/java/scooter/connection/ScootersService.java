@@ -6,6 +6,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import scooter.data.ScooterDto;
 import scooter.util.RequestUtil;
+import scooter.util.ScooterType;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -14,8 +15,7 @@ import java.util.Random;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import static scooter.data.Data.ADMIN_TOKEN;
-import static scooter.data.Data.USER_TOKEN;
+import static scooter.data.Data.*;
 
 @Getter
 public class ScootersService extends BaseScooter {
@@ -41,8 +41,8 @@ public class ScootersService extends BaseScooter {
     }
 
     public String deleteScooterById(String scooterId) throws IOException {
-        Request request = requestUtil.deleteRequest(url + scooterId, ADMIN_TOKEN);
-        return requestUtil.getResponse(request);
+        Request request = requestUtil.deleteRequest(url + scooterId, ADMIN_TOKEN, "{}");
+        return requestUtil.getResponse(request).replace("\"", "");
     }
 
     public String getRandomScooterID() throws IOException {
@@ -58,12 +58,30 @@ public class ScootersService extends BaseScooter {
         return allScooters.get(new Random().nextInt(allScooters.size())).getId();
     }
 
-    public String getScooterStatusById(String scooterId,String token) throws IOException {
-        Request request = requestUtil.getRequest(url + "/status/" + scooterId,token);
-        return requestUtil.getResponse(request);
+    public String getScooterStatusById(String scooterId, String token) throws IOException {
+        Request request = requestUtil.getRequest(url + "/status/" + scooterId, token);
+        return requestUtil.getResponse(request).replace("\"", "");
     }
 
+    public ScooterDto getScooterById(String scooterId, String token) throws IOException {
+        Request request = requestUtil.getRequest(url + "/" + scooterId, token);
+        return requestUtil.getResponseAs(ScooterDto.class, request);
+    }
 
+    public String getNewScooterById() throws IOException {
+        ScooterDto scooterPayload = new ScooterDto();
+        scooterPayload.setModelName(TEST_MODEL_NAME);
+        scooterPayload.setSerialNumber(TEST_SERIAL_NUMBER);
+        Request request = requestUtil.postRequest(url, scooterPayload, ADMIN_TOKEN);
+        return requestUtil.getResponse(request).replace("\"", "");
+    }
+
+    public String getNewStatusScooterById(String scooterId, ScooterType scooterType) throws IOException {
+        Request request = requestUtil.putRequest(url + "/status/" + scooterId + "/" + scooterType,
+                EMPTY_JSON_OBJ,
+                ADMIN_TOKEN);
+        return requestUtil.getResponse(request);
+    }
 }
 
 
