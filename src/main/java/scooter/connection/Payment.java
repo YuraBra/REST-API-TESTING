@@ -1,16 +1,16 @@
 package scooter.connection;
 
 import okhttp3.Request;
-import scooter.data.TripObject;
 import scooter.util.RequestUtil;
 
 import java.io.IOException;
 
-import static scooter.data.Data.*;
+import static scooter.data.Data.ADMIN_TOKEN;
 
 public class Payment extends BaseScooter {
     private String paymentUrl;
     private RequestUtil requestUtil;
+
 
     public Payment(String userId) {
         this.paymentUrl = this.baseUrl + "payment-service/payments/" + userId
