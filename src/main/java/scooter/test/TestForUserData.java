@@ -38,7 +38,7 @@ public class TestForUserData {
     public void getUserData() {
         String userDataJson;
         String body = TokenDecoder.getBodyFromToken(token);
-        String userID = SubStringSearcher.getSubString(body,Data.firstSubStrForUserID,Data.secondSubStrForUserID);
+        String userID = SubStringSearcher.getSubString(body,Data.FIRST_SUB_STR_FOR_USER_ID,Data.SECOND_SUB_STR_FOR_USER_ID);
         UserData userData = new UserData(userID);
         try {
             userDataJson = userData.run();
