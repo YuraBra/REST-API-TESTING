@@ -11,6 +11,34 @@ public final class Data {
             "OGBDFjbG9t8g2-_CgRYrGvZnTu8CG1YvqkzhT-u4lrOSSGZCXTaQObHAeL7osLp" +
             "NcckdlRAu016tJAiz6IL-ybwjJE2nLmZsHXzjErfYc4WfpXYsSkLwVu09-wLPOE" +
             "i4uTMZXhW6fMWTi2mUbyFaK0qtNzbMhvo8qgLQ";
+
+    public static final String FIRST_SUB_STR_FOR_USER_ID="{\"sub\":\"";
+    public static final String SECOND_SUB_STR_FOR_USER_ID="\",\"role";
+    public static final String FIRST_SUB_STR_FOR_USER_MAIL="{\"email\":\"";
+    public static final String SECOND_SUB_STR_FOR_USER_MAIL="\",\"firstN";
+
+    public static final String EMAIL_USER_DATA_TEST_1 = "testforapi.i@mail.com";
+    public static final String USER_TOKEN_USER_DATA_TEST_1="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI" +
+            "0NWJjYWEzMi1iYmMzLTQwN2MtYWQwMC0xZmFkOTE2NmExZjYiLCJyb2xlIjoiW1wiVVNFUlwiXSI" +
+            "sImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU5NTk5Njc3OX0.AOGHgcR0QJKPSh-10rDiu7IRXmtNuV" +
+            "JagqYgrX44vf0IXfGC-QxRL1rioP3AMxdfsIqXSEPoMB8Y4TCZwALX_LnQi_Zb5TGNJTmH804mgbl7" +
+            "rTDTruUSV01rHNknYEEol5TY8ByUwvDwxEaToQat5mOfGRPXM7CgNYPhuVo_g2nM2tLVIKkm5kI6nBDk5" +
+            "5F1hbszI33XLm24bpLBF1MAllltsQFy0K4SNwYqMVoscvngSr_Et2SqQ3UgabymNgPCn3BfKl78pQhtAuJo" +
+            "R5LV192Y2aO9Ptcyd36BIfbLiZNx0N1SIsgVNpsS3DmAcTB8aGc9LsiCpkLDL5r7t8MdEA";
+
+    public static final String EMAIL_USER_DATA_TEST_2 = "testforapi.z@mail.com";
+    public static final String USER_TOKEN_USER_DATA_TEST_2="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwNTQ3MmUxOS1h" +
+            "ODlmLTRhYmEtYTc2MS0xYTkyNjk5OWUwMzAiLCJyb2xlIjoiW1wiVVNFUlwiXSIsImlzcyI6ImxvY2FsaG9zdCIsImV" +
+            "4cCI6MTU5NjAwMDM0MH0.Xkgdr0zntI1GgTDxuK65leQz72pv3IZj5ZqVBnkn9tiGxtzcbfz-z9fET3Nn-lzc8qCQdASyF" +
+            "nndh27k9WoCBZNiPf-snrRWGTnAzWoZ6jJawZUeOLskEkzfXY9vNNVCpogGpzlyoA6rzJlmGPheFHD4f8aj6IkqGTDO7LB" +
+            "mUtdxIVZ245xsjYXoqTXv4GQpbT31N5w1BadlRKxRsc5GQuHYCDcb3CHJAHqcD57B7K6AAqVjpwaF5O83DKJug2nApPG1Xx" +
+            "eFGiww8t4xM3HDud1y1ggI864YE8s7Ai5HSD8iWOzsLLBRJ6AXJZCGH4VB-1Mloet5ADJB7f1IpkoUlg";
+
+
+
+
+
+
     public static final String USER_ID = "9a27f6c9-3744-44a6-98ef-ef8d176dc262";
     public static final String USER_ID1 = "8d1d467a-6858-4516-b4fd-5c3f33dd4f51";
     public static final String USER_ID2 = "601aef71-93fc-4487-947c-163cd53ef4b6";

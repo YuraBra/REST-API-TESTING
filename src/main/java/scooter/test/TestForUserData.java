@@ -1,42 +1,56 @@
 package scooter.test;
 
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Parameterized;
+import org.junit.runners.Parameterized.Parameters;
+import scooter.data.Data;
+import scooter.services.UserData;
+import scooter.util.SubStringSearcher;
+import scooter.util.TokenDecoder;
 
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Collection;
+
+@RunWith(value = Parameterized.class)
 public class TestForUserData extends BaseTest{
-    private int actualStatus;
-    private boolean isRandEmail = true;
-    String userID;
+
+    private String token;
+    private String expectedMail;
+
+    public TestForUserData(String token, String expectedMail) {
+        this.token = token;
+        this.expectedMail = expectedMail;
+    }
+
+    @Parameters
+    public static Collection<Object[]> data() {
+        return Arrays.asList(new Object[][]{
+                {Data.USER_TOKEN_USER_DATA_TEST_1, Data.EMAIL_USER_DATA_TEST_1},
+                {Data.USER_TOKEN_USER_DATA_TEST_2, Data.EMAIL_USER_DATA_TEST_2}
+        });
+    }
 
     @Test
-    public void testForGetUserData() {
-
-        // проверить в БД нет ли такого user, если есть очистить
-        // создать юзера
-        // зарегистрировать юзер
-        // получить его ID
-        // админ запрос на его данніе
-/*
-        //User user = new User();
-//        User user = new User("dp184taqc@gmail.com","qwerty","Engineer","QA");
-//        //user.setId("9a27f6c9-3744-44a6-98ef-ef8d176dc262");
-//
-//        SignUp signUp = new SignUp();
-//        try{
-//            userID = signUp.getResponse(user,isRandEmail);
-//            // user.setID(userID) = signUp.getResponse(user,isRandEmail);
-//        }catch (IOException e){
-//
-//        }
-//
-//        UserData userData = new UserData(userID);// (user.getID)
-//        try {
-//            actualStatus = userData.run();
-//        } catch (IOException e) {
-//
-//        }
-//
-//    }
+    public void getUserData() {
+        String userDataJson;
+        String body = TokenDecoder.getBodyFromToken(token);
+        String userID = SubStringSearcher.getSubString(body,Data.FIRST_SUB_STR_FOR_USER_ID,Data.SECOND_SUB_STR_FOR_USER_ID);
+        UserData userData = new UserData(userID);
+        try {
+            userDataJson = userData.run();
+            String actualMailFromJSON = SubStringSearcher.getSubString(userDataJson, Data.FIRST_SUB_STR_FOR_USER_MAIL,Data.SECOND_SUB_STR_FOR_USER_MAIL);
+            Assert.assertEquals(expectedMail, actualMailFromJSON);
+        } catch (IOException e) {
+            Assert.fail();
+        }
     }
- */
-}
+
+
+
+
+
 }
