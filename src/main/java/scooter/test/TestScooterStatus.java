@@ -28,9 +28,6 @@ public class TestScooterStatus extends BaseTest{
     public void deleteScooter () throws IOException {
         scootersService.getNewStatusScooterById(newScooterId, inspect);
         scootersService.deleteScooterById(newScooterId);
-        ScooterDto scooterStatus = scootersService.getScooterById(newScooterId, ADMIN_TOKEN);
-        String scooter = scooterStatus.getStatus();
-        System.out.println("scooter Status is:" + scooter);
     }
 
     public static Object[][] testCheckChangeScooterStatus() {
