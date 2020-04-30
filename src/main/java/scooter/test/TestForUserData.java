@@ -18,17 +18,16 @@ import java.util.Objects;
 
 public class TestForUserData {
 
-    User user;
-    String activateToken;
+
     String bearerCode;
 
 
     @Before
-    public void createUser() throws IOException {
+    public void createUser() throws IOException {       // getToken
 
-        user = new User(Data.emailUserDataTest_1, Data.passwordUserDataTest_1, Data.firstNameUserDataTest_1, Data.lastNameUserDataTest_1);
+        User user = new User(Data.emailUserDataTest_1, Data.passwordUserDataTest_1, Data.firstNameUserDataTest_1, Data.lastNameUserDataTest_1);
         SignUp signUp = new SignUp();
-        activateToken = signUp.getResponse(user);
+        String activateToken = signUp.getResponse(user);
         System.out.println("Step 1");
         System.out.println(activateToken);
         ActivateAccount acc = new ActivateAccount();
@@ -36,36 +35,26 @@ public class TestForUserData {
         System.out.println("Step 2");
         System.out.println(actualCode);
         SignIn signIn = new SignIn();
-        bearerCode = Objects.requireNonNull(signIn.getResponse(Data.emailUserDataTest_1, Data.passwordUserDataTest_1)
+        bearerCode = Objects.requireNonNull(signIn.getResponse(Data.emailUserDataTest_1, Data.passwordUserDataTest_1) // user.getMail; user.getpassword
                 .header("Authorization")).replace("Bearer ", "");
         System.out.println("Step 3");
         System.out.println(bearerCode);
     }
 
-    private String getUserIdFromDecodedToken(String token) {
-
-        String body = TokenDecoder.getBodyFromToken(token);
-        String userID = SubStringSearcher.getSubString(body,Data.firstSubStrForUserID,Data.secondSubStrForUserID);
-        return userID;
-    }
-
-    private String getMail(String jsonAnswer){
-
-        String mail = SubStringSearcher.getSubString(jsonAnswer, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
-        return mail;
-    }
 
     @Test
     public void getUserData() {
-        String respSerID;
+        String userDataJson;
         String actualMailFromJSON;
-        String userId = getUserIdFromDecodedToken(bearerCode);
-        UserData userData = new UserData(userId);
+        String body = TokenDecoder.getBodyFromToken(bearerCode);            // Data.Token1;
+        String userID = SubStringSearcher.getSubString(body,Data.firstSubStrForUserID,Data.secondSubStrForUserID);
+
+        UserData userData = new UserData(userID);
         try {
-            respSerID = userData.run();
-            System.out.println("Step 7");
-            System.out.println(respSerID);
-            actualMailFromJSON = getMail(respSerID);
+            userDataJson = userData.run();
+            System.out.println("Step 7");       // DELETE
+            System.out.println(userDataJson);   // DELETE
+            actualMailFromJSON = SubStringSearcher.getSubString(userDataJson, Data.firstSubStrForUserMail,Data.secondSubStrForUserMail);
             Assert.assertEquals("testforapi.i@mail.com", actualMailFromJSON);
         } catch (IOException e) {
             Assert.fail();
