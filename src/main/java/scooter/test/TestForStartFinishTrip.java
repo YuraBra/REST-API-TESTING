@@ -2,8 +2,8 @@ package scooter.test;
 
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.ScootersService;
-import scooter.connection.Trip;
+import scooter.services.ScootersService;
+import scooter.services.Trip;
 import scooter.data.ScooterDto;
 
 import java.io.IOException;
@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static scooter.data.Data.ADMIN_TOKEN;
 
-public class TestForStartFinishTrip {
+public class TestForStartFinishTrip extends BaseTest{
 
     @Test
     public void testForTripStart() throws IOException {

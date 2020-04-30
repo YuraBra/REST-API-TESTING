@@ -1,4 +1,4 @@
-package scooter.connection;
+package scooter.services;
 
 import lombok.Getter;
 import okhttp3.Request;
@@ -7,8 +7,7 @@ import scooter.util.RequestUtil;
 
 import java.io.IOException;
 
-import static scooter.data.Data.USER_ID;
-import static scooter.data.Data.USER_TOKEN;
+import static scooter.data.Data.*;
 
 @Getter
 public class Trip extends BaseScooter {
@@ -31,7 +30,7 @@ public class Trip extends BaseScooter {
     }
 
     private String getTrip(String scooterId, String url) throws IOException {
-        TripObject tripObject = new TripObject(USER_ID, scooterId);
+        TripObject tripObject = new TripObject(USER_ID1, scooterId);
         Request request = requestUtil.postRequest(url, tripObject, USER_TOKEN);
         return requestUtil.getResponse(request);
     }
