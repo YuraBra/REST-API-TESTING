@@ -14,7 +14,7 @@ import scooter.util.TokenDecoder;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
-
+    
 @RunWith(value = Parameterized.class)
 public class TestForUserData extends BaseTest{
 
