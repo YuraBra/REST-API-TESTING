@@ -17,10 +17,6 @@ public final class Data {
     public static final String secondSubStrForUserMail="\",\"firstN";
 
     public static final String emailUserDataTest_1 = "testforapi.i@mail.com";
-    public static final String passwordUserDataTest_1 = "qwerty";
-    public static final String firstNameUserDataTest_1 = "Alex9";
-    public static final String lastNameUserDataTest_1 = "Bor9";
-
     public static final String userTokenUserDataTest_1="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI" +
             "0NWJjYWEzMi1iYmMzLTQwN2MtYWQwMC0xZmFkOTE2NmExZjYiLCJyb2xlIjoiW1wiVVNFUlwiXSI" +
             "sImlzcyI6ImxvY2FsaG9zdCIsImV4cCI6MTU5NTk5Njc3OX0.AOGHgcR0QJKPSh-10rDiu7IRXmtNuV" +
@@ -29,12 +25,13 @@ public final class Data {
             "5F1hbszI33XLm24bpLBF1MAllltsQFy0K4SNwYqMVoscvngSr_Et2SqQ3UgabymNgPCn3BfKl78pQhtAuJo" +
             "R5LV192Y2aO9Ptcyd36BIfbLiZNx0N1SIsgVNpsS3DmAcTB8aGc9LsiCpkLDL5r7t8MdEA";
 
-    public static final String emailUserDataTest_2 = "testforapi.f@mail.com";
-    public static final String passwordUserDataTest_2 = "qwerty";
-    public static final String firstNameUserDataTest_2 = "Alex5";
-    public static final String lastNameUserDataTest_2= "Bor5";
-
-    public static final String userTokenUserDataTest_2="";
+    public static final String emailUserDataTest_2 = "testforapi.z@mail.com";
+    public static final String userTokenUserDataTest_2="eyJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIwNTQ3MmUxOS1h" +
+            "ODlmLTRhYmEtYTc2MS0xYTkyNjk5OWUwMzAiLCJyb2xlIjoiW1wiVVNFUlwiXSIsImlzcyI6ImxvY2FsaG9zdCIsImV" +
+            "4cCI6MTU5NjAwMDM0MH0.Xkgdr0zntI1GgTDxuK65leQz72pv3IZj5ZqVBnkn9tiGxtzcbfz-z9fET3Nn-lzc8qCQdASyF" +
+            "nndh27k9WoCBZNiPf-snrRWGTnAzWoZ6jJawZUeOLskEkzfXY9vNNVCpogGpzlyoA6rzJlmGPheFHD4f8aj6IkqGTDO7LB" +
+            "mUtdxIVZ245xsjYXoqTXv4GQpbT31N5w1BadlRKxRsc5GQuHYCDcb3CHJAHqcD57B7K6AAqVjpwaF5O83DKJug2nApPG1Xx" +
+            "eFGiww8t4xM3HDud1y1ggI864YE8s7Ai5HSD8iWOzsLLBRJ6AXJZCGH4VB-1Mloet5ADJB7f1IpkoUlg";
 
 
 

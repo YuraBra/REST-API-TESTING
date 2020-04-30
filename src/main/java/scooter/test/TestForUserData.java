@@ -29,8 +29,8 @@ public class TestForUserData {
     @Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {Data.userTokenUserDataTest_1, Data.emailUserDataTest_1}//,
-                //{Data.userTokenUserDataTest_2, Data.emailUserDataTest_2}
+                {Data.userTokenUserDataTest_1, Data.emailUserDataTest_1},
+                {Data.userTokenUserDataTest_2, Data.emailUserDataTest_2}
         });
     }
 
@@ -54,7 +54,7 @@ public class TestForUserData {
     }
 
 
-    
+
 
 
 }
