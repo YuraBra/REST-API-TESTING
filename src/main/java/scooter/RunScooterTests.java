@@ -6,6 +6,7 @@ import org.junit.runners.Suite;
 import scooter.test.TestForActivateAccount;
 import scooter.test.TestForAuthorizedUser;
 import scooter.test.TestForNewUser;
+import scooter.test.TestScooterStatus;
 import scooter.test.TestScooters;
 
 @RunWith(Categories.class)
@@ -13,7 +14,9 @@ import scooter.test.TestScooters;
         TestScooters.class,
         TestForNewUser.class,
         TestForActivateAccount.class,
-        TestForAuthorizedUser.class
+        TestForAuthorizedUser.class,
+        TestScooters.class,
+        TestScooterStatus.class
 })
 public class RunScooterTests {
 }
