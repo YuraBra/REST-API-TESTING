@@ -1,9 +1,8 @@
 package scooter.connection;
 
 import lombok.Getter;
-import nasa.parsing.Parsing;
 import okhttp3.Request;
-import okhttp3.Response;
+import scooter.data.Scooter;
 import scooter.data.ScooterDto;
 import scooter.util.RequestUtil;
 
@@ -11,11 +10,9 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 import static scooter.data.Data.ADMIN_TOKEN;
-import static scooter.data.Data.USER_TOKEN;
 
 @Getter
 public class ScootersService extends BaseScooter {
@@ -58,12 +55,15 @@ public class ScootersService extends BaseScooter {
         return allScooters.get(new Random().nextInt(allScooters.size())).getId();
     }
 
-    public String getScooterStatusById(String scooterId,String token) throws IOException {
-        Request request = requestUtil.getRequest(url + "/status/" + scooterId,token);
+    public String getScooterStatusById(String scooterId, String token) throws IOException {
+        Request request = requestUtil.getRequest(url + "/status/" + scooterId, token);
         return requestUtil.getResponse(request);
     }
 
-
+    public String addScooter(Scooter scooter) throws IOException {
+        Request request = requestUtil.postRequest(url, scooter, ADMIN_TOKEN);
+        return requestUtil.getResponse(request);
+    }
 }
 
 

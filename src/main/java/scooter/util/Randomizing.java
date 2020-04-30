@@ -1,4 +1,4 @@
-package scooter;
+package scooter.util;
 
 import java.util.Random;
 

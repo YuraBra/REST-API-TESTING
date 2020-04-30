@@ -2,10 +2,9 @@ package scooter.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.Setter;
+import scooter.util.Randomizing;
 
 @Getter
-@Setter
 @AllArgsConstructor
 public class User {
 
@@ -15,13 +14,15 @@ public class User {
     private String firstName;
     private String lastName;
 
-
     public User(String email, String password, String firstName, String lastName) {
-        this.email = email;
+        this.email = Randomizing.getRandomizedEmail(email);
         this.password = password;
         this.firstName = firstName;
         this.lastName = lastName;
     }
 
-
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 }
