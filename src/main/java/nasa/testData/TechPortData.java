@@ -18,7 +18,7 @@ public class TechPortData {
     HashMap<String, String> mapTitles;
 
     public TechPortData() {
-        mapTitles = new HashMap<String, String>();
+        mapTitles = new HashMap<>();
         mapTitles.put(id1,title1);
         mapTitles.put(id2,title2);
         mapTitles.put(id3,title3);
