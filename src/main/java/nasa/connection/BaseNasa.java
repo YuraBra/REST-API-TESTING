@@ -6,6 +6,7 @@ import okhttp3.Response;
 
 import java.io.IOException;
 import java.net.ConnectException;
+import java.util.Objects;
 
 public abstract class  BaseNasa {
     protected String baseUrl = "https://api.nasa.gov/";
@@ -19,9 +20,9 @@ public abstract class  BaseNasa {
     public String getResponse(Request request) throws IOException {
         try (Response response = client.newCall(request).execute()) {
             if(response.code() != 200 ){
-                throw new ConnectException("Bad internet");
+                throw new ConnectException("Connection fail");
             }
-            return response.body().string();
+            return Objects.requireNonNull(response.body()).string();
         }
     }
 }
