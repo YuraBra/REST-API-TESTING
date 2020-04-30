@@ -3,13 +3,13 @@ package scooter.test;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.Payment;
+import scooter.services.Payment;
 
 import java.io.IOException;
 
 import static scooter.data.Data.*;
 
-public class TestForUserSolvency {
+public class TestForUserSolvency extends BaseTest{
 
     @Test
     public void testForUserSolvencyWithCard(){
