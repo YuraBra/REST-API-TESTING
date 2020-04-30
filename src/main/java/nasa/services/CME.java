@@ -1,15 +1,15 @@
-package nasa.connection;
+package nasa.services;
 
 import okhttp3.HttpUrl;
 import okhttp3.Request;
 
 import java.io.IOException;
 
-public class Sentry extends BaseNasa {
+public class CME extends BaseNasa {
     private String BaseCMEUrl;
 
-    public Sentry() {
-        this.BaseCMEUrl = "https://ssd-api.jpl.nasa.gov/sentry.api";
+    public CME() {
+        this.BaseCMEUrl = this.baseUrl + "DONKI/CMEAnalysis";
     }
 
     public String run() throws IOException {
@@ -23,7 +23,7 @@ public class Sentry extends BaseNasa {
 
     private String createUrl(){
         HttpUrl.Builder urlBuilder = HttpUrl.parse(BaseCMEUrl).newBuilder();
-     //   urlBuilder.addQueryParameter("api_key", apiKey);
+        urlBuilder.addQueryParameter("api_key", apiKey);
         return urlBuilder.build().toString();
     }
 

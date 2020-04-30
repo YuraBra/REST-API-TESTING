@@ -1,6 +1,6 @@
 package nasa.test;
 
-import nasa.connection.APOD;
+import nasa.services.APOD;
 import nasa.data.APODObject;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
@@ -9,12 +9,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import nasa.parsing.Parsing;
 import nasa.testData.APODTestData;
+import scooter.test.BaseTest;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForAPOD {
+public class TestForAPOD extends BaseTest {
     private static final String EMPTY_STRING = "";
 
     public static Collection<Object[]> inputDataPositive(){
@@ -37,7 +39,7 @@ public class TestForAPOD {
             String response = apod.run(data);
             APODObject object =(APODObject) new Parsing(new APODObject(), response).parseDataFromJson();
             Assert.assertEquals(object, apodObject);
-        }catch (Exception e){
+        }catch (IOException e){
             Assert.fail(e.getMessage());
         }
     }

@@ -19,11 +19,14 @@ public final class Data {
     public static final String FIRST_NAME = "Engineer";
     public static final String LAST_NAME = "QA";
     public static final String CARD_NUMBER = "4242424242424242";
-    public static final int CVC = 123;
+    public static final Integer LAST_FOUR = 4242;
+    public static final Integer CVC = 123;
     public static final String YEAR_MONTH = "2020-12";
 
     public static final String EMAIL_2 = "dp184test2@gmail.com";
     public static final String PASSWORD_2 = "qwerty2";
+    public static final String EMAIL_3 = "dp184test3@gmail.com";
+    public static final String PASSWORD_3 = "qwerty3";
     public static final String EMPTY_JSON_OBJ = "{}";
     public static final String TEST_MODEL_NAME = "dp184";
     public static final String TEST_SERIAL_NUMBER = "2020";

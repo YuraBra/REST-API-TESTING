@@ -66,7 +66,7 @@ public class RequestUtil {
                 .build();
     }
 
-    public <T> Request deleteRequest(String httpUrl, String token, String payload) throws JsonProcessingException {
+    public <T> Request deleteRequest(String httpUrl, String token, T payload) throws JsonProcessingException {
         return new Request.Builder()
                 .url(httpUrl)
                 .addHeader("Authorization", "Bearer " + token)

@@ -15,11 +15,12 @@ import scooter.test.TestScooters;
         TestScooters.class,
         TestForNewUser.class,
         TestForActivateAccount.class,
-        TestForAuthorizedUser.class,
         TestForUserSolvency.class,
         TestForAuthorizedUser.class,
-        TestScooters.class,
-        TestScooterStatus.class
+        TestScooterStatus.class,
+        TestCardService.class,
+        TestForStartFinishTrip.class,
+        TestForUserData.class
 })
 public class RunScooterTests {
 }

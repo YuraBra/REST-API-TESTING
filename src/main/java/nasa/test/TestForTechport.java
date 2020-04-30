@@ -1,14 +1,15 @@
 package nasa.test;
 
 import nasa.parsing.Parsing;
-import nasa.connection.Techport;
+import nasa.services.Techport;
 import nasa.data.techportObject.ListTechPortObjects;
 import org.junit.Assert;
 import org.junit.Test;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 
-public class TestForTechport {
+public class TestForTechport extends BaseTest {
 
     @Test
     public void testForTechport() throws IOException {
