@@ -51,7 +51,7 @@ public class TestScooters extends BaseTest{
         String randomScooterId = scootersService.getRandomActiveScooterId();
         String scooterStatusByIdAsUser = scootersService.getScooterStatusById(randomScooterId, USER_TOKEN);
         String scooterStatusByIdAsAdmin = scootersService.getScooterStatusById(randomScooterId, ADMIN_TOKEN);
-        Assert.assertEquals(scooterStatusByIdAsUser, scooterStatusByIdAsUser);
+        Assert.assertEquals(scooterStatusByIdAsAdmin, scooterStatusByIdAsUser);
     }
 
     @Test
