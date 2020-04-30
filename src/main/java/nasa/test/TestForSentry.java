@@ -1,14 +1,15 @@
 package nasa.test;
 
-import nasa.connection.Sentry;
+import nasa.services.Sentry;
 import nasa.data.SentryObject;
 import nasa.parsing.Parsing;
 import org.junit.Assert;
 import org.junit.Test;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 
-public class TestForSentry {
+public class TestForSentry extends BaseTest {
     private String expected = "NASA/JPL Sentry Data API";
 
     @Test

@@ -1,16 +1,17 @@
 package nasa.test;
 
-import nasa.connection.CME;
+import nasa.services.CME;
 import nasa.data.CMEObject;
 import nasa.parsing.Parsing;
 import org.junit.Assert;
 import org.junit.Test;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 import java.util.List;
 
 
-public class TestForCME {
+public class TestForCME extends BaseTest {
     private String catalog = "SWRC_CATALOG";
 
     @Test

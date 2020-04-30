@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.exc.MismatchedInputException;
 import org.junit.Assert;
 import org.junit.Test;
-import scooter.connection.CardService;
+import scooter.services.CardService;
 import scooter.data.CardObject;
 import scooter.data.UserCardDto;
 
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static scooter.data.Data.*;
 
-public class TestCardService {
+public class TestCardService extends BaseTest{
 
     private CardObject userCard;
     CardService cardService = new CardService();

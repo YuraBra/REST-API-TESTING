@@ -24,7 +24,7 @@ public class TestForStartFinishTrip extends BaseTest{
         Trip trip = new Trip();
         trip.startTrip(scooterIdFree);
         String statusScooterAfterStart = scootersService.getScooterStatusById(scooterIdFree, ADMIN_TOKEN);
-        String expected = "\"IN_USE\"";
+        String expected = "IN_USE";
         Assert.assertEquals("The incorrect data were used", expected, statusScooterAfterStart);
     }
 
@@ -39,7 +39,7 @@ public class TestForStartFinishTrip extends BaseTest{
         Trip trip = new Trip();
         trip.finishTrip(scooterIdFree);
         String statusScooterAfterFinish = scootersService.getScooterStatusById(scooterIdFree, ADMIN_TOKEN);
-        String expected = "\"FREE\"";
+        String expected = "FREE";
         Assert.assertEquals("The incorrect data were used", expected, statusScooterAfterFinish);
     }
 }

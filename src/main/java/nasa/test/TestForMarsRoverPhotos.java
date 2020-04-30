@@ -1,7 +1,7 @@
 package nasa.test;
 
 import nasa.parsing.Parsing;
-import nasa.connection.MarsRoverPhotos;
+import nasa.services.MarsRoverPhotos;
 import nasa.data.marsRoverPhotos.Photo;
 import nasa.data.marsRoverPhotos.PhotoMars;
 import junitparams.JUnitParamsRunner;
@@ -10,6 +10,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import nasa.testData.MarsRoverPhotosTestData;
+import scooter.test.BaseTest;
 
 import java.io.IOException;
 import java.util.Arrays;
@@ -17,7 +18,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForMarsRoverPhotos {
+public class TestForMarsRoverPhotos extends BaseTest {
 
     public static Collection<Object[]> inputData() {
         return Arrays.asList(new Object[][]{
