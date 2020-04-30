@@ -8,7 +8,7 @@ import scooter.data.Data;
 import scooter.data.User;
 import java.io.IOException;
 
-public class TestForActivateAccount {
+public class TestForActivateAccount extends BaseTest{
     private final static int expectedStatusCode = 204;
     private String token = getToken();
 

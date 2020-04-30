@@ -11,7 +11,7 @@ import java.util.Arrays;
 
 import static scooter.data.Data.ADMIN_TOKEN;
 
-public class TestForStartFinishTrip {
+public class TestForStartFinishTrip extends BaseTest{
 
     @Test
     public void testForTripStart() throws IOException {

@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForNewUser {
+public class TestForNewUser extends BaseTest{
     public int expectedLength = 36;
 
     public static Collection<Object[]> inputDataPositive(){

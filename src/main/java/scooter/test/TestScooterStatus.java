@@ -14,7 +14,7 @@ import static scooter.data.Data.*;
 import static scooter.util.ScooterType.*;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestScooterStatus {
+public class TestScooterStatus extends BaseTest{
 
     private ScootersService scootersService = new ScootersService();
     private String newScooterId;

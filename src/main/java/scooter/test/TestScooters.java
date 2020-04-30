@@ -12,7 +12,7 @@ import java.util.Arrays;
 import static scooter.data.Data.ADMIN_TOKEN;
 import static scooter.data.Data.USER_TOKEN;
 
-public class TestScooters {
+public class TestScooters extends BaseTest{
     private int expectedStatusCode = 200;
     private int expectedDeleteStatusCode = 204;
     private ScootersService scootersService = new ScootersService();

@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(JUnitParamsRunner.class)
-public class TestForAuthorizedUser {
+public class TestForAuthorizedUser extends BaseTest{
     public int expectedBearerTokenLength = 499;
 
     public static Collection<Object[]> inputDataPositive(){

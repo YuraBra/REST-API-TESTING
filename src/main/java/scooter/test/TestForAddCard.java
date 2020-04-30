@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static scooter.data.Data.*;
 
-public class TestForAddCard {
+public class TestForAddCard extends BaseTest{
 
     private AuthorizedUser autorizedUser;
     private String userToken;

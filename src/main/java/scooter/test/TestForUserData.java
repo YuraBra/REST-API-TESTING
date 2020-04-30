@@ -2,7 +2,7 @@ package scooter.test;
 
 import org.junit.Test;
 
-public class TestForUserData {
+public class TestForUserData extends BaseTest{
     private int actualStatus;
     private boolean isRandEmail = true;
     String userID;
